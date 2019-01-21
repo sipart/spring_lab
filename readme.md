@@ -5,8 +5,8 @@ Lab created from the example in the Juniper Day One book [Configuring Segment Ro
 A set of initial lab configs for this post: WIP (to include detail on using EVE-NG on the Google Compute Platform)
 
 * MPLS core is using ISIS as the IGP
-* PE routermages are all QEMU Junos 17.3R3-S2.2
-* R and R7 are the route reflectors
+* PE router images are all QEMU Junos 17.3R3-S2.2
+* R4 and R7 are the route reflectors
 * CE vSRX site routers will be Junos v12.1x47-d15.4 QEMU images
 * root user password is lab123
 * lab user password is lab123
