@@ -11,4 +11,4 @@ A set of initial lab configs for this post: WIP (to include detail on using EVE-
 * root user password is lab123
 * lab user password is lab123
 
-![jdo-pring(/img/EVE-NG Juniper Day One SPRING lab.png)
+![jdo-spring](/img/EVE-NG Juniper Day One SPRING lab.png)
