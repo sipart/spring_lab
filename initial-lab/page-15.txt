@@ -1,1 +1,5 @@
+This set of initial labs will get you to page 15 in the Juniper Segment Routing Day One book.
 
+The syslog filtering is used to remove some annoying messages from the virtual console connections used by EVE-NG when you don't have a mgmt. connection.
+
+The IPv6 ISIS adjacencies are created using the automatic link local addressing - so no need to address them individually.
