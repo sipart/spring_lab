@@ -64,17 +64,13 @@ it should show 1 in the output
 
 # Setup of network device mgmt. and Linux box mgmt.
 
-1- Connect devices mgmt. ints (fxp0 on vMX) to cloud9 network object
+Connect devices mgmt. ints (fxp0 on vMX) to cloud9 network object
 
-Set IP on mgmt. ints -
+Set IP on mgmt. interfaces -
 
 10.132.0.201/20 and up for PEs
 
 10.132.0.221/20 and up for CEs
-
-2- Set routing on EVE-NG server
-
-ip route add 10.132.0.0/20 dev pnet0
 
 # Add automation Linux box image ([18.04 Ubuntu server](https://ipnet.xyz/2018/06/ubuntu-image-for-eve-ng-python-for-network-engineers/)) to EVE-NG and add to any topology
 
@@ -94,18 +90,6 @@ ip route add 10.132.0.0/20 dev pnet0
          nameservers:
            addresses: [8.8.8.8, 1.1.1.1]
          dhcp4: no
-
-Check routes
-
-    pfne@ubuntu1804-pfne:~$ ip route list
-    default via 10.132.0.1 dev ens3 proto static
-    10.132.0.0/20 dev ens3 proto kernel scope link src 10.132.0.20
-
-    pfne@ubuntu1804-pfne:~$ route
-    Kernel IP routing table
-    Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
-    default         _gateway        0.0.0.0         UG    0      0        0 ens3
-    10.132.0.0      0.0.0.0         255.255.240.0   U     0      0        0 ens3
 
 Check if you can ping 8.8.8.8 :-)
 
