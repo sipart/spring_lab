@@ -70,7 +70,7 @@ Set IP on mgmt. ints -
 
 10.132.0.201/20 and up for PEs
 
-10.132.0.201/20 and up for CEs
+10.132.0.221/20 and up for CEs
 
 2- Set routing on EVE-NG server
 
