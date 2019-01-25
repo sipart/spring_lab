@@ -62,6 +62,20 @@ it should show the rule as persistent
 
 it should show 1 in the output
 
+Check routing on the EVE-NG server:
+
+    root@sipart-eve:~# route
+    Kernel IP routing table
+    Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+    default         10.132.0.1      0.0.0.0         UG    0      0        0 pnet0
+    10.132.0.0      *               255.255.240.0   U     0      0        0 pnet9
+    10.132.0.1      *               255.255.255.255 UH    0      0        0 pnet0
+
+    root@sipart-eve:~# ip route list
+    default via 10.132.0.1 dev pnet0
+    10.132.0.0/20 dev pnet9  proto kernel  scope link  src 10.132.0.10
+    10.132.0.1 dev pnet0  scope link
+
 # Setup of network device mgmt. and Linux box mgmt.
 
 Connect devices mgmt. ints (fxp0 on vMX) to cloud9 network object
