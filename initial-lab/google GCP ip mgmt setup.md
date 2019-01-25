@@ -42,7 +42,7 @@
 
     sudo iptables -t nat -L
 
-it should shown the rule persistent
+it should show the rule as persistent
 
 # for the /proc/sys/net/ipv4/ip_forward to be persistent across reboots
 
@@ -60,7 +60,7 @@ it should shown the rule persistent
 
     cat /proc/sys/net/ipv4/ip_forward
 
-it should shown 1 in the output
+it should show 1 in the output
 
 # Setup of network device mgmt and Linux box mgmt. & Internet ##
 
