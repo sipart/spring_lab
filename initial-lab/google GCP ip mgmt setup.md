@@ -62,7 +62,7 @@ it should show the rule as persistent
 
 it should show 1 in the output
 
-# Setup of network device mgmt and Linux box mgmt. & Internet ##
+# Setup of network device mgmt. and Linux box mgmt.
 
 1- Connect devices mgmt. ints (fxp0 on vMX) to cloud9 network object
 
