@@ -24,7 +24,7 @@
         bridge_ports eth9
         bridge_stp off
 
-# to make iptables persistent
+# To make iptables persistent
 
 1-
 
@@ -44,7 +44,7 @@
 
 it should show the rule as persistent
 
-# for the /proc/sys/net/ipv4/ip_forward to be persistent across reboots
+# For the /proc/sys/net/ipv4/ip_forward to be persistent across reboots
 
 1-
 
