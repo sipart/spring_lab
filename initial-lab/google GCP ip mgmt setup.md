@@ -1,3 +1,11 @@
+Resources for setting up EVE-NG in the Goolge Compute Platform
+
+Comprehensive post by [ithitman](http://ithitman.blogspot.com/2018/04/configuring-eve-ng-on-google-compute.html)
+
+https://showipintbri.blogspot.com/2018/08/eve-ng-in-cloud.html which point to the video on [YouTube](https://www.youtube.com/watch?v=HDHsMgCs0XU)
+
+I setup my VM in the europe-west1 region.
+
 10.132.0.0/20 is the europe-west1 region VPC
 
 # Cloud9 setup on EVE-NG server (allows Internet and mgmt)
