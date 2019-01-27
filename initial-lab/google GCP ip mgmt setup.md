@@ -105,6 +105,10 @@ Set IP on mgmt. interfaces -
            addresses: [8.8.8.8, 1.1.1.1]
          dhcp4: no
 
+Apply netplan changes
+    
+    sudo netplan apply
+
 Check if you can ping 8.8.8.8 :-)
 
 Extras to install on the Linux box:
