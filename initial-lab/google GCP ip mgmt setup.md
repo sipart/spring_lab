@@ -179,7 +179,7 @@ Update the /etc/hosts file for name resoloution
 
 Update the /etc/ansible/hosts for Ansible inventory use
 
-
+```
 pfne@ubuntu1804-pfne:~$ tree
 .
 ├── ansible-automation
@@ -191,9 +191,9 @@ pfne@ubuntu1804-pfne:~$ tree
 │       │   └── interfaces
 │       ├── logs
 │       └── playbooks
+```
 
-
-
+```
 pfne@ubuntu1804-pfne:~$ cat ansible-automation/juniper_core/playbooks/get_conf_and_int.yml
 ---
 - name: GET
@@ -230,8 +230,9 @@ pfne@ubuntu1804-pfne:~$ cat ansible-automation/juniper_core/playbooks/get_conf_a
       dest: "../info/interfaces/{{ inventory_hostname }}_get-interfaces.output"
 
 ### EOF ###
+```
 
-
+```
 pfne@ubuntu1804-pfne:~$ ansible-playbook ansible-automation/juniper_core/playbooks/get_con                                                                                                f_and_int.yml
 
 PLAY [GET] *******************************************************************************
@@ -281,7 +282,9 @@ r6                         : ok=2    changed=0    unreachable=0    failed=0
 r7                         : ok=2    changed=0    unreachable=0    failed=0
 r8                         : ok=2    changed=0    unreachable=0    failed=0
 r9                         : ok=2    changed=0    unreachable=0    failed=0
+```
 
+```
 pfne@ubuntu1804-pfne:~$ tree
 .
 ├── ansible-automation
@@ -315,5 +318,5 @@ pfne@ubuntu1804-pfne:~$ tree
 │       └── playbooks
 │           ├── get_conf_and_int.retry
 │           └── get_conf_and_int.yml
-
+```
 
