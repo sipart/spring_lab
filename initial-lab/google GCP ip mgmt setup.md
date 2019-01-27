@@ -123,11 +123,11 @@ Create SSH key when logged in as pfne:
 
         ssh-keygen -t rsa -b 2048
 
-Use SSH copy util to copy SSH key to Juniper boxes (make sure pfne superuser already exists on the Juniper device with password of pfne123)
+Use SSH copy util to copy SSH key of current logged in Linux host account to Juniper boxes in this case 'pfne' (make sure a superuser account already exists on the Juniper device - in this case the 'lab' user)
 
     pfne@ubuntu1804-pfne:~$ ssh-copy-net 10.132.0.201 juniper
-    Username: pfne
-    Password: pfne123
+    Username: lab
+    Password: lab123
     All Done!
     pfne@ubuntu1804-pfne:~$
 
