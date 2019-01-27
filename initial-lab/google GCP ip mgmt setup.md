@@ -20,11 +20,11 @@ I setup my VM in the europe-west1 region due to the need for more cores not avai
 
 ##### To make pnet9 IP persistent
 
-1- Edit the interfaces file
+Edit the interfaces file
 
     sudo nano /etc/network/interfaces
 
-2- edit eth9 for your preferred IP
+Edit eth9 for your preferred IP
 
     iface eth9 inet manual
     auto pnet9
@@ -36,41 +36,41 @@ I setup my VM in the europe-west1 region due to the need for more cores not avai
 
 ##### To make iptables persistent
 
-1-
+Install iptables-persistent
 
     sudo apt-get install iptables-persistent
 
-2-
+Save
 
     sudo netfilter-persistent save
 
-3-
+Reload
 
     sudo netfilter-persistent reload
 
-4- reboot the system and do the following command:
+reboot the system and do the following command:
 
     sudo iptables -t nat -L
 
-it should show the rule as persistent
+It should show the rule as persistent
 
 ##### To make ip_forward persistent
 
-1-
+Edit the sysctl config file
 
     sudo nano /etc/sysctl.conf
 
-2- Uncomment 'net.ipv4.ip_forward=1' and save
+Uncomment 'net.ipv4.ip_forward=1' and save
 
-3- issue the following command:
+Issue the following command:
 
     sudo sysctl -p /etc/sysctl.conf
 
-4- reboot the system and do the following command:
+Reboot the system and do the following command:
 
     cat /proc/sys/net/ipv4/ip_forward
 
-it should show 1 in the output
+It should show 1 in the output
 
 Check routing on the EVE-NG server:
 
@@ -98,7 +98,7 @@ Set IP on mgmt. interfaces -
 
 #### Add automation Linux box image ([18.04 Ubuntu server](https://ipnet.xyz/2018/06/ubuntu-image-for-eve-ng-python-for-network-engineers/)) to EVE-NG and add to any topology
 
-** Edit netplan file to get Linux box networked
+** Edit netplan file to get Linux box networked (Ubuntu 18.04 uses netplan for interface config)
 
     sudo nano /etc/netplan/01-netcfg.yaml
 
@@ -183,9 +183,7 @@ Lets check netconf to R1 (this assumes SSH RSA key access is working - see above
       <session-id>5363</session-id>
     </hello>
 
-
-
-Update the /etc/hosts file for name resoloution
+Update the /etc/hosts file for name resolution
 
 Update the /etc/ansible/hosts for Ansible inventory use
 
