@@ -10,7 +10,7 @@ I setup my VM in the europe-west1 region due to the need for more cores not avai
 
 10.132.0.0/20 is the europe-west1 region VPC
 
-#### Cloud9 setup on EVE-NG server (allows Internet and mgmt)
+#### Cloud9 setup on EVE-NG server - allows Internet access for Linux host in topology and EVE-NG/Linux host access to network device mgmt. - commands assume logged in as root.
 
     ip address add 10.132.0.10/20 dev pnet9
 
@@ -42,15 +42,15 @@ Install iptables-persistent
 
 Save
 
-    sudo netfilter-persistent save
+    netfilter-persistent save
 
 Reload
 
-    sudo netfilter-persistent reload
+    netfilter-persistent reload
 
 reboot the system and do the following command:
 
-    sudo iptables -t nat -L
+    iptables -t nat -L
 
 It should show the rule as persistent
 
@@ -58,13 +58,13 @@ It should show the rule as persistent
 
 Edit the sysctl config file
 
-    sudo nano /etc/sysctl.conf
+    nano /etc/sysctl.conf
 
 Uncomment 'net.ipv4.ip_forward=1' and save
 
 Issue the following command:
 
-    sudo sysctl -p /etc/sysctl.conf
+    sysctl -p /etc/sysctl.conf
 
 Reboot the system and do the following command:
 
@@ -96,7 +96,7 @@ Set IP on mgmt. interfaces -
 
 10.132.0.221/20 and up for CEs
 
-#### Add automation Linux box image ([18.04 Ubuntu server](https://ipnet.xyz/2018/06/ubuntu-image-for-eve-ng-python-for-network-engineers/)) to EVE-NG and add to any topology
+#### Add automation Linux box image ([18.04 Ubuntu server](https://ipnet.xyz/2018/06/ubuntu-image-for-eve-ng-python-for-network-engineers/)) to EVE-NG and add to any topology - login as pfne.
 
 Edit the netplan file to get Linux box networked (Ubuntu 18.04 uses netplan for interface config)
 
