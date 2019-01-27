@@ -1,4 +1,4 @@
-## Resources for setting up EVE-NG in the Goolge Compute Platform
+## Resources for setting up EVE-NG in the Google Compute Platform
 
 These resources are ideal to do the setup - nothing for me to add - everything else is to confgure the detail beyond the linked guides.
 
