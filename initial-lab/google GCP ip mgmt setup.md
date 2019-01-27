@@ -180,6 +180,46 @@ Update the /etc/hosts file for name resoloution
 Update the /etc/ansible/hosts for Ansible inventory use
 
 ```
+pfne@ubuntu1804-pfne:~$ cat /etc/ansible/hosts
+# This is the default ansible 'hosts' file.
+#
+# It should live in /etc/ansible/hosts
+#
+#   - Comments begin with the '#' character
+#   - Blank lines are ignored
+#   - Groups of hosts are delimited by [header] elements
+#   - You can enter hostnames or ip addresses
+#   - A hostname/ip can be a member of multiple groups
+
+[MX]
+r1 ansible_connection=local
+r2 ansible_connection=local
+r3 ansible_connection=local
+r4 ansible_connection=local
+r5 ansible_connection=local
+r6 ansible_connection=local
+r7 ansible_connection=local
+r8 ansible_connection=local
+r9 ansible_connection=local
+
+[SRX]
+ce1 ansible_connection=local
+ce2 ansible_connection=local
+ce3 ansible_connection=local
+ce4 ansible_connection=local
+ce5 ansible_connection=local
+ce6 ansible_connection=local
+
+[JUNIPER:children]
+MX
+SRX
+
+[JUNIPER:vars]
+juniper_user=pfne
+os=junos
+```
+
+```
 pfne@ubuntu1804-pfne:~$ tree
 .
 ├── ansible-automation
@@ -233,46 +273,33 @@ pfne@ubuntu1804-pfne:~$ cat ansible-automation/juniper_core/playbooks/get_conf_a
 ```
 
 ```
-pfne@ubuntu1804-pfne:~$ ansible-playbook ansible-automation/juniper_core/playbooks/get_con                                                                                                f_and_int.yml
+pfne@ubuntu1804-pfne:~$ ansible-playbook ansible-automation/juniper_core/playbooks/get_conf_and_int.yml --limit=MX
 
-PLAY [GET] *******************************************************************************
+PLAY [GET] *******************************************************************************************************************************************************************************
 
-TASK [Pull Down The Configs] *************************************************************
-ok: [r2]
+TASK [Pull Down The Configs] *************************************************************************************************************************************************************
 ok: [r5]
-ok: [r4]
+ok: [r2]
 ok: [r1]
 ok: [r3]
-ok: [r6]
-ok: [r7]
-ok: [r8]
-ok: [r9]
-fatal: [ce1]: FAILED! => {"changed": false, "msg": "Unable to make a PyEZ connection: ConnectTimeoutError(ce1)"}
-fatal: [ce2]: FAILED! => {"changed": false, "msg": "Unable to make a PyEZ connection: ConnectTimeoutError(ce2)"}
-fatal: [ce3]: FAILED! => {"changed": false, "msg": "Unable to make a PyEZ connection: ConnectTimeoutError(ce3)"}
-fatal: [ce4]: FAILED! => {"changed": false, "msg": "Unable to make a PyEZ connection: ConnectTimeoutError(ce4)"}
-fatal: [ce5]: FAILED! => {"changed": false, "msg": "Unable to make a PyEZ connection: ConnectTimeoutError(ce5)"}
-fatal: [ce6]: FAILED! => {"changed": false, "msg": "Unable to make a PyEZ connection: ConnectTimeoutError(ce6)"}
-
-TASK [GET-INTERFACES] ********************************************************************
-ok: [r3]
-ok: [r2]
 ok: [r4]
-ok: [r5]
-ok: [r1]
 ok: [r7]
 ok: [r9]
 ok: [r8]
 ok: [r6]
-        to retry, use: --limit @/home/pfne/ansible-automation/juniper_core/playbooks/get_conf_and_int.retry
 
-PLAY RECAP *******************************************************************************
-ce1                        : ok=0    changed=0    unreachable=0    failed=1
-ce2                        : ok=0    changed=0    unreachable=0    failed=1
-ce3                        : ok=0    changed=0    unreachable=0    failed=1
-ce4                        : ok=0    changed=0    unreachable=0    failed=1
-ce5                        : ok=0    changed=0    unreachable=0    failed=1
-ce6                        : ok=0    changed=0    unreachable=0    failed=1
+TASK [GET-INTERFACES] ********************************************************************************************************************************************************************
+ok: [r1]
+ok: [r2]
+ok: [r5]
+ok: [r3]
+ok: [r4]
+ok: [r8]
+ok: [r6]
+ok: [r7]
+ok: [r9]
+
+PLAY RECAP *******************************************************************************************************************************************************************************
 r1                         : ok=2    changed=0    unreachable=0    failed=0
 r2                         : ok=2    changed=0    unreachable=0    failed=0
 r3                         : ok=2    changed=0    unreachable=0    failed=0
