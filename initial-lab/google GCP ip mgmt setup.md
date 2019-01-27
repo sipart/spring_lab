@@ -54,7 +54,7 @@ I setup my VM in the europe-west1 region due to the need for more cores not avai
 
 it should show the rule as persistent
 
-##### For the /proc/sys/net/ipv4/ip_forward to be persistent across reboots
+##### To make ip_forward persistent
 
 1-
 
