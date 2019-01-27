@@ -1,14 +1,16 @@
-Resources for setting up EVE-NG in the Goolge Compute Platform
+## Resources for setting up EVE-NG in the Goolge Compute Platform
+
+These resources are good ideal to do the setup - nothing for me to add - everything here is to confgure the detail beyond the linked guides.
 
 Comprehensive post by [ithitman](http://ithitman.blogspot.com/2018/04/configuring-eve-ng-on-google-compute.html)
 
-https://showipintbri.blogspot.com/2018/08/eve-ng-in-cloud.html which point to the video on [YouTube](https://www.youtube.com/watch?v=HDHsMgCs0XU)
+Tony Es similar but basic blog [post](https://showipintbri.blogspot.com/2018/08/eve-ng-in-cloud.html) which points to his comprehensive video on [YouTube](https://www.youtube.com/watch?v=HDHsMgCs0XU)
 
-I setup my VM in the europe-west1 region.
+I setup my VM in the europe-west1 region due to the need for more cores not availiable in the UK DCs.
 
 10.132.0.0/20 is the europe-west1 region VPC
 
-# Cloud9 setup on EVE-NG server (allows Internet and mgmt)
+#### Cloud9 setup on EVE-NG server (allows Internet and mgmt)
 
     ip address add 10.132.0.10/20 dev pnet9
 
@@ -16,7 +18,7 @@ I setup my VM in the europe-west1 region.
 
     iptables -t nat -A POSTROUTING -o pnet0 -s 10.132.0.0/20 -j MASQUERADE
 
-# To make pnet9 IP persistent
+##### To make pnet9 IP persistent
 
 1- Edit the interfaces file
 
@@ -32,7 +34,7 @@ I setup my VM in the europe-west1 region.
         bridge_ports eth9
         bridge_stp off
 
-# To make iptables persistent
+##### To make iptables persistent
 
 1-
 
@@ -52,7 +54,7 @@ I setup my VM in the europe-west1 region.
 
 it should show the rule as persistent
 
-# For the /proc/sys/net/ipv4/ip_forward to be persistent across reboots
+##### For the /proc/sys/net/ipv4/ip_forward to be persistent across reboots
 
 1-
 
@@ -84,7 +86,7 @@ Check routing on the EVE-NG server:
     10.132.0.0/20 dev pnet9  proto kernel  scope link  src 10.132.0.10
     10.132.0.1 dev pnet0  scope link
 
-# Setup of network device mgmt. and Linux box mgmt.
+#### Setup of network device mgmt. and Linux box mgmt.
 
 Connect devices mgmt. ints (fxp0 on vMX) to cloud9 network object
 
@@ -94,7 +96,7 @@ Set IP on mgmt. interfaces -
 
 10.132.0.221/20 and up for CEs
 
-# Add automation Linux box image ([18.04 Ubuntu server](https://ipnet.xyz/2018/06/ubuntu-image-for-eve-ng-python-for-network-engineers/)) to EVE-NG and add to any topology
+#### Add automation Linux box image ([18.04 Ubuntu server](https://ipnet.xyz/2018/06/ubuntu-image-for-eve-ng-python-for-network-engineers/)) to EVE-NG and add to any topology
 
 ** Edit netplan file to get Linux box networked
 
@@ -139,7 +141,7 @@ Use SSH copy util to copy SSH key of current logged in Linux host account to Jun
     All Done!
     pfne@ubuntu1804-pfne:~$
 
-# [TMUX](https://linuxize.com/post/getting-started-with-tmux/) - multi window access from EVE-NG SSH session - 
+##### [TMUX](https://linuxize.com/post/getting-started-with-tmux/) - multi window access from EVE-NG SSH session - 
     Ctrl+b c Create a new window (with shell)
 
     Ctrl+b % Split current pane horizontally into two panes
@@ -153,7 +155,7 @@ Use SSH copy util to copy SSH key of current logged in Linux host account to Jun
     Ctrl+b 0 Switch to window 0 (by number )
     Ctrl+b , Rename the current window
 
-# Ansible
+#### Ansible
 
 All tools should be setup for Ansible on the Linux host
 
