@@ -98,7 +98,7 @@ Set IP on mgmt. interfaces -
 
 #### Add automation Linux box image ([18.04 Ubuntu server](https://ipnet.xyz/2018/06/ubuntu-image-for-eve-ng-python-for-network-engineers/)) to EVE-NG and add to any topology
 
-** Edit netplan file to get Linux box networked (Ubuntu 18.04 uses netplan for interface config)
+Edit the netplan file to get Linux box networked (Ubuntu 18.04 uses netplan for interface config)
 
     sudo nano /etc/netplan/01-netcfg.yaml
 
@@ -141,7 +141,7 @@ Use SSH copy util to copy SSH key of current logged in Linux host account to Jun
     All Done!
     pfne@ubuntu1804-pfne:~$
 
-##### [TMUX](https://linuxize.com/post/getting-started-with-tmux/) - multi window access from EVE-NG SSH session - 
+##### [TMUX](https://linuxize.com/post/getting-started-with-tmux/) - multi window access from EVE-NG SSH session
     Ctrl+b c Create a new window (with shell)
 
     Ctrl+b % Split current pane horizontally into two panes
