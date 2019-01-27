@@ -172,3 +172,148 @@ Lets check netconf to R1 (this assumes SSH RSA key access is working - see above
       </capabilities>
       <session-id>5363</session-id>
     </hello>
+
+
+
+Update the /etc/hosts file for name resoloution
+
+Update the /etc/ansible/hosts for Ansible inventory use
+
+
+pfne@ubuntu1804-pfne:~$ tree
+.
+├── ansible-automation
+│   └── juniper_core
+│       ├── conf
+│       ├── group_vars
+│       ├── host_vars
+│       ├── info
+│       │   └── interfaces
+│       ├── logs
+│       └── playbooks
+
+
+
+pfne@ubuntu1804-pfne:~$ cat ansible-automation/juniper_core/playbooks/get_conf_and_int.yml
+---
+- name: GET
+  hosts: JUNIPER
+  roles:
+  - Juniper.junos
+  connection: local
+  gather_facts: no
+
+  # Execute tasks (plays) this way "ansible-playbook <path>/GET.yml --tags <tag-name>"
+  tasks:
+
+### JUNOS_GET_CONFIG SECTION
+  # Execute "show configuration" and save output to a file
+  - name: Pull Down The Configs
+    juniper_junos_command:
+      commands:
+          - "show configuration | display set"
+      host: "{{ inventory_hostname }}"
+      logfile: ../logs/get_config.log
+      format: text
+      dest: "../conf/{{ inventory_hostname }}.conf"
+
+### JUNOS_CLI SECTION
+  # Get list of interfaces and save output to a file
+  - name: GET-INTERFACES
+    juniper_junos_command:
+      commands:
+          - "show interfaces terse"
+          - "show interfaces descriptions"
+      host: "{{ inventory_hostname }}"
+      logfile: ../logs/get_interfaces.log
+      format: text
+      dest: "../info/interfaces/{{ inventory_hostname }}_get-interfaces.output"
+
+### EOF ###
+
+
+pfne@ubuntu1804-pfne:~$ ansible-playbook ansible-automation/juniper_core/playbooks/get_con                                                                                                f_and_int.yml
+
+PLAY [GET] *******************************************************************************
+
+TASK [Pull Down The Configs] *************************************************************
+ok: [r2]
+ok: [r5]
+ok: [r4]
+ok: [r1]
+ok: [r3]
+ok: [r6]
+ok: [r7]
+ok: [r8]
+ok: [r9]
+fatal: [ce1]: FAILED! => {"changed": false, "msg": "Unable to make a PyEZ connection: ConnectTimeoutError(ce1)"}
+fatal: [ce2]: FAILED! => {"changed": false, "msg": "Unable to make a PyEZ connection: ConnectTimeoutError(ce2)"}
+fatal: [ce3]: FAILED! => {"changed": false, "msg": "Unable to make a PyEZ connection: ConnectTimeoutError(ce3)"}
+fatal: [ce4]: FAILED! => {"changed": false, "msg": "Unable to make a PyEZ connection: ConnectTimeoutError(ce4)"}
+fatal: [ce5]: FAILED! => {"changed": false, "msg": "Unable to make a PyEZ connection: ConnectTimeoutError(ce5)"}
+fatal: [ce6]: FAILED! => {"changed": false, "msg": "Unable to make a PyEZ connection: ConnectTimeoutError(ce6)"}
+
+TASK [GET-INTERFACES] ********************************************************************
+ok: [r3]
+ok: [r2]
+ok: [r4]
+ok: [r5]
+ok: [r1]
+ok: [r7]
+ok: [r9]
+ok: [r8]
+ok: [r6]
+        to retry, use: --limit @/home/pfne/ansible-automation/juniper_core/playbooks/get_conf_and_int.retry
+
+PLAY RECAP *******************************************************************************
+ce1                        : ok=0    changed=0    unreachable=0    failed=1
+ce2                        : ok=0    changed=0    unreachable=0    failed=1
+ce3                        : ok=0    changed=0    unreachable=0    failed=1
+ce4                        : ok=0    changed=0    unreachable=0    failed=1
+ce5                        : ok=0    changed=0    unreachable=0    failed=1
+ce6                        : ok=0    changed=0    unreachable=0    failed=1
+r1                         : ok=2    changed=0    unreachable=0    failed=0
+r2                         : ok=2    changed=0    unreachable=0    failed=0
+r3                         : ok=2    changed=0    unreachable=0    failed=0
+r4                         : ok=2    changed=0    unreachable=0    failed=0
+r5                         : ok=2    changed=0    unreachable=0    failed=0
+r6                         : ok=2    changed=0    unreachable=0    failed=0
+r7                         : ok=2    changed=0    unreachable=0    failed=0
+r8                         : ok=2    changed=0    unreachable=0    failed=0
+r9                         : ok=2    changed=0    unreachable=0    failed=0
+
+pfne@ubuntu1804-pfne:~$ tree
+.
+├── ansible-automation
+│   └── juniper_core
+│       ├── conf
+│       │   ├── r1.conf
+│       │   ├── r2.conf
+│       │   ├── r3.conf
+│       │   ├── r4.conf
+│       │   ├── r5.conf
+│       │   ├── r6.conf
+│       │   ├── r7.conf
+│       │   ├── r8.conf
+│       │   └── r9.conf
+│       ├── group_vars
+│       ├── host_vars
+│       ├── info
+│       │   └── interfaces
+│       │       ├── r1_get-interfaces.output
+│       │       ├── r2_get-interfaces.output
+│       │       ├── r3_get-interfaces.output
+│       │       ├── r4_get-interfaces.output
+│       │       ├── r5_get-interfaces.output
+│       │       ├── r6_get-interfaces.output
+│       │       ├── r7_get-interfaces.output
+│       │       ├── r8_get-interfaces.output
+│       │       └── r9_get-interfaces.output
+│       ├── logs
+│       │   ├── get_config.log
+│       │   └── get_interfaces.log
+│       └── playbooks
+│           ├── get_conf_and_int.retry
+│           └── get_conf_and_int.yml
+
+
