@@ -6,6 +6,8 @@ Comprehensive post by [ithitman](http://ithitman.blogspot.com/2018/04/configurin
 
 Tony Es similar but basic blog [post](https://showipintbri.blogspot.com/2018/08/eve-ng-in-cloud.html) which points to his comprehensive video on [YouTube](https://www.youtube.com/watch?v=HDHsMgCs0XU)
 
+Watch alternative [Azure](https://youtu.be/hdUSNWMHbUU) setup by thelantamer
+
 I setup my VM in the europe-west1 region due to the need for more cores not availiable in the UK DCs.
 
 10.132.0.0/20 is the europe-west1 region VPC
@@ -22,7 +24,7 @@ I setup my VM in the europe-west1 region due to the need for more cores not avai
 
 Edit the interfaces file
 
-    sudo nano /etc/network/interfaces
+    nano /etc/network/interfaces
 
 Edit eth9 for your preferred IP
 
@@ -38,7 +40,7 @@ Edit eth9 for your preferred IP
 
 Install iptables-persistent
 
-    sudo apt-get install iptables-persistent
+    apt-get install iptables-persistent
 
 Save
 
@@ -128,6 +130,8 @@ Extras to install on the Linux box:
         sudo pip2 install git+https://github.com/Juniper/py-junos-eznc.git
 
         sudo pip install git+https://github.com/networkop/ssh-copy-net.git
+        
+        jmxlease
 
 Create SSH key when logged in as pfne:
 
