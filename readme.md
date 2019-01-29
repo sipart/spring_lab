@@ -17,4 +17,10 @@ At this time the EVE-NG server is in the Google Compute Platform (24 vCPUs, 90 G
 * The pfne user has a RSA key to communicate with the network devices
 * Initial folder holds the configs for the devices and also exports from EVE-NG of the initial setup (upto page 15 of the book)
 
+EVE-NG lab topology:
+
 ![jdo-spring](/img/SPRING-lab.png)
+
+EVE-NG lab topology in Forward Essentials (collector installed on the Linux automation box):
+
+![fwd-essentials](/img/springcoreinFWDess.png)
