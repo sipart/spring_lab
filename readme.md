@@ -14,7 +14,7 @@ At this time the EVE-NG server is in the Google Compute Platform (24 vCPUs, 90 G
 * Juniper lab user password is lab123
 * Linux host root user password is root
 * Linux host pfne user password is pfne
-* The pfne user has a local public SSH key to communicate with the network devices
+* The pfne user has a local public SSH key to communicate with the network devices from the Linux automation server
 * Initial folder holds the configs for the devices and also exports from EVE-NG of the initial setup (upto page 15 of the book)
 
 EVE-NG lab topology:
