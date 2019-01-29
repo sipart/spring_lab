@@ -131,7 +131,7 @@ Extras to install on the Linux box:
 
         sudo pip install git+https://github.com/networkop/ssh-copy-net.git
         
-        jmxlease
+        sudo pip install jxmlease
 
 Create SSH key when logged in as pfne:
 
