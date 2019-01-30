@@ -1,0 +1,35 @@
+---
+- name: GET
+  hosts: JUNIPER
+  roles:
+  - Juniper.junos
+  connection: local
+  gather_facts: no
+
+  # Execute tasks (plays) this way "ansible-playbook <path>/GET.yml --tags <tag-name>"
+  tasks:
+
+### JUNOS_GET_CONFIG SECTION
+  # Execute "show configuration" and save output to a file
+  - name: Pull Down The Configs
+    juniper_junos_command:
+      commands:
+          - "show configuration | display set"
+      host: "{{ inventory_hostname }}"
+      logfile: ../logs/get_config.log
+      format: text
+      dest: "../conf/{{ inventory_hostname }}.conf"
+
+### JUNOS_CLI SECTION
+  # Get list of interfaces and save output to a file
+  - name: GET-INTERFACES
+    juniper_junos_command:
+      commands:
+          - "show interfaces terse"
+          - "show interfaces descriptions"
+      host: "{{ inventory_hostname }}"
+      logfile: ../logs/get_interfaces.log
+      format: text
+      dest: "../info/interfaces/{{ inventory_hostname }}_get-interfaces.output"
+
+### EOF ###
