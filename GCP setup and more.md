@@ -358,4 +358,10 @@ pfne@ubuntu1804-pfne:~$ tree
 │           ├── get_conf_and_int.retry
 │           └── get_conf_and_int.yml
 ```
+#### Forward Essentials
+
+To start the collector on the Linux automation host
+''''
+$HOME/.fwd/bin/fwd daemon
+''''
 
