@@ -361,7 +361,8 @@ pfne@ubuntu1804-pfne:~$ tree
 #### Forward Essentials
 
 To start the collector on the Linux automation host
-''''
+
+'''
 $HOME/.fwd/bin/fwd daemon
-''''
+'''
 
