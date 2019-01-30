@@ -396,7 +396,7 @@ pfne@ubuntu1804-pfne:~$ tree
 ```
 #### Forward Essentials
 
-After intstallation (you need to sign up [here](https://www.forwardnetworks.com/network-mapping-software/) to get a logon to the web app and download software - essentials is free) start the collector on the Linux automation host (it does not run as a service) to do device discovery and snapshots.
+After installation (you need to sign up [here](https://www.forwardnetworks.com/network-mapping-software/) to get a logon to the web app and download software - essentials is free) start the collector on the Linux automation host (it does not run as a service) to do device discovery and snapshots.
 
 Path to Forward Networks collector software '$HOME/.fwd/bin/'
 
