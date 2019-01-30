@@ -14,20 +14,23 @@ I setup my VM in the europe-west1 region due to the need for more cores not avai
 
 #### Cloud9 setup on EVE-NG server - allows Internet access for Linux host in topology and EVE-NG/Linux host access to network device mgmt. - commands assume logged in as root.
 
-    ip address add 10.132.0.10/20 dev pnet9
-
-    echo 1 > /proc/sys/net/ipv4/ip_forward
-
-    iptables -t nat -A POSTROUTING -o pnet0 -s 10.132.0.0/20 -j MASQUERADE
+```
+ip address add 10.132.0.10/20 dev pnet9
+echo 1 > /proc/sys/net/ipv4/ip_forward
+iptables -t nat -A POSTROUTING -o pnet0 -s 10.132.0.0/20 -j MASQUERADE
+```
 
 ##### To make pnet9 IP persistent
 
 Edit the interfaces file
 
-    nano /etc/network/interfaces
+```
+nano /etc/network/interfaces
+```
 
 Edit eth9 for your preferred IP
 
+```
     iface eth9 inet manual
     auto pnet9
     iface pnet9 inet static
@@ -35,24 +38,33 @@ Edit eth9 for your preferred IP
         netmask 255.255.240.0
         bridge_ports eth9
         bridge_stp off
+```
 
 ##### To make iptables persistent
 
 Install iptables-persistent
 
-    apt-get install iptables-persistent
+```
+apt-get install iptables-persistent
+```
 
 Save
 
-    netfilter-persistent save
+```
+netfilter-persistent save
+```
 
 Reload
 
-    netfilter-persistent reload
+```
+netfilter-persistent reload
+```
 
 reboot the system and do the following command:
 
-    iptables -t nat -L
+```
+iptables -t nat -L
+```
 
 It should show the rule as persistent
 
@@ -60,33 +72,41 @@ It should show the rule as persistent
 
 Edit the sysctl config file
 
-    nano /etc/sysctl.conf
+```
+nano /etc/sysctl.conf
+```
 
 Uncomment 'net.ipv4.ip_forward=1' and save
 
 Issue the following command:
 
-    sysctl -p /etc/sysctl.conf
+```
+sysctl -p /etc/sysctl.conf
+```
 
 Reboot the system and do the following command:
 
-    cat /proc/sys/net/ipv4/ip_forward
+```
+cat /proc/sys/net/ipv4/ip_forward
+```
 
 It should show 1 in the output
 
 Check routing on the EVE-NG server:
 
-    root@sipart-eve:~# route
-    Kernel IP routing table
-    Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
-    default         10.132.0.1      0.0.0.0         UG    0      0        0 pnet0
-    10.132.0.0      *               255.255.240.0   U     0      0        0 pnet9
-    10.132.0.1      *               255.255.255.255 UH    0      0        0 pnet0
+```
+root@sipart-eve:~# route
+Kernel IP routing table
+Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
+default         10.132.0.1      0.0.0.0         UG    0      0        0 pnet0
+10.132.0.0      *               255.255.240.0   U     0      0        0 pnet9
+10.132.0.1      *               255.255.255.255 UH    0      0        0 pnet0
 
-    root@sipart-eve:~# ip route list
-    default via 10.132.0.1 dev pnet0
-    10.132.0.0/20 dev pnet9  proto kernel  scope link  src 10.132.0.10
-    10.132.0.1 dev pnet0  scope link
+root@sipart-eve:~# ip route list
+default via 10.132.0.1 dev pnet0
+10.132.0.0/20 dev pnet9  proto kernel  scope link  src 10.132.0.10
+10.132.0.1 dev pnet0  scope link
+```
 
 #### Setup of network device mgmt. and Linux box mgmt.
 
@@ -102,62 +122,75 @@ Set IP on mgmt. interfaces -
 
 Edit the netplan file to get Linux box networked (Ubuntu 18.04 uses netplan for interface config)
 
+```
     sudo nano /etc/netplan/01-netcfg.yaml
 
-    This file describes the network interfaces available on your system
-    For more information, see netplan(5).
-    network:
-     version: 2
-      renderer: networkd
-      ethernets:
-        ens3:
-         addresses: [10.132.0.200/20]
-         gateway4: 10.132.0.2
-         nameservers:
-           addresses: [8.8.8.8, 1.1.1.1]
-         dhcp4: no
+This file describes the network interfaces available on your system
+For more information, see netplan(5).
+network:
+ version: 2
+  renderer: networkd
+  ethernets:
+    ens3:
+     addresses: [10.132.0.200/20]
+     gateway4: 10.132.0.2
+     nameservers:
+       addresses: [8.8.8.8, 1.1.1.1]
+     dhcp4: no
+```
 
 Apply netplan changes
-    
-    sudo netplan apply
+  
+```
+sudo netplan apply
+```
 
 Check if you can ping 8.8.8.8 :-)
 
+```
 Extras to install on the Linux box:
 
-        sudo ansible-galaxy install Juniper.junos
+sudo ansible-galaxy install Juniper.junos
 
-        sudo pip2 install git+https://github.com/Juniper/py-junos-eznc.git
+sudo pip2 install git+https://github.com/Juniper/py-junos-eznc.git
 
-        sudo pip install git+https://github.com/networkop/ssh-copy-net.git
+sudo pip install git+https://github.com/networkop/ssh-copy-net.git
         
-        sudo pip install jxmlease
+sudo pip install jxmlease
+```
 
 Create SSH key when logged in as pfne:
 
-        ssh-keygen -t rsa -b 2048
+```
+ssh-keygen -t rsa -b 2048
+```
 
 Use SSH copy util to copy SSH key of current logged in Linux host account to Juniper boxes in this case 'pfne' (make sure a superuser account already exists on the Juniper device - in this case the 'lab' user)
 
-    pfne@ubuntu1804-pfne:~$ ssh-copy-net 10.132.0.201 juniper
-    Username: lab
-    Password: lab123
-    All Done!
-    pfne@ubuntu1804-pfne:~$
+```
+pfne@ubuntu1804-pfne:~$ ssh-copy-net 10.132.0.201 juniper
+Username: lab
+Password: lab123
+All Done!
+pfne@ubuntu1804-pfne:~$
+```
 
 ##### [TMUX](https://linuxize.com/post/getting-started-with-tmux/) - multi window access from EVE-NG SSH session
-    Ctrl+b c Create a new window (with shell)
 
-    Ctrl+b % Split current pane horizontally into two panes
-    Ctrl+b " Split current pane vertically into two panes
+```
+Ctrl+b c Create a new window (with shell)
 
-    Ctrl+b o Go to the next pane
-    Ctrl+b x Close the current pane
+Ctrl+b % Split current pane horizontally into two panes
+Ctrl+b " Split current pane vertically into two panes
 
-    Ctrl+b ; Toggle between current and previous pane
-    Ctrl+b w Choose window from a list
-    Ctrl+b 0 Switch to window 0 (by number )
-    Ctrl+b , Rename the current window
+Ctrl+b o Go to the next pane
+Ctrl+b x Close the current pane
+
+Ctrl+b ; Toggle between current and previous pane
+Ctrl+b w Choose window from a list
+Ctrl+b 0 Switch to window 0 (by number )
+Ctrl+b , Rename the current window
+```
 
 #### Ansible
 
@@ -165,27 +198,30 @@ All tools should be setup for Ansible on the Linux host
 
 Lets check netconf to R1 (this assumes SSH RSA key access is working - see above)
 
-    pfne@ubuntu1804-pfne:~$ ssh -s pfne@10.132.0.201 netconf
-    <!-- No zombies were killed during the creation of this user interface -->
-    <!-- user pfne, class j-super-user -->
-    <hello xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
-      <capabilities>
-        <capability>urn:ietf:params:netconf:base:1.0</capability>
-        <capability>urn:ietf:params:netconf:capability:candidate:1.0</capability>
-        <capability>urn:ietf:params:netconf:capability:confirmed-commit:1.0</capability>
-        <capability>urn:ietf:params:netconf:capability:validate:1.0</capability>
-        <capability>urn:ietf:params:netconf:capability:url:1.0?scheme=http,ftp,file</capability>
-        <capability>urn:ietf:params:xml:ns:netconf:base:1.0</capability>
-        <capability>urn:ietf:params:xml:ns:netconf:capability:candidate:1.0</capability>
-        <capability>urn:ietf:params:xml:ns:netconf:capability:confirmed-commit:1.0</capability>
-        <capability>urn:ietf:params:xml:ns:netconf:capability:validate:1.0</capability>
-        <capability>urn:ietf:params:xml:ns:netconf:capability:url:1.0?protocol=http,ftp,file</capability>
-        <capability>urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring</capability>
-        <capability>http://xml.juniper.net/netconf/junos/1.0</capability>
-        <capability>http://xml.juniper.net/dmi/system/1.0</capability>
-      </capabilities>
-      <session-id>5363</session-id>
-    </hello>
+pfne@ubuntu1804-pfne:~$ ssh -s pfne@10.132.0.201 netconf
+
+```
+<!-- No zombies were killed during the creation of this user interface -->
+<!-- user pfne, class j-super-user -->
+<hello xmlns="urn:ietf:params:xml:ns:netconf:base:1.0">
+  <capabilities>
+    <capability>urn:ietf:params:netconf:base:1.0</capability>
+    <capability>urn:ietf:params:netconf:capability:candidate:1.0</capability>
+    <capability>urn:ietf:params:netconf:capability:confirmed-commit:1.0</capability>
+    <capability>urn:ietf:params:netconf:capability:validate:1.0</capability>
+    <capability>urn:ietf:params:netconf:capability:url:1.0?scheme=http,ftp,file</capability>
+    <capability>urn:ietf:params:xml:ns:netconf:base:1.0</capability>
+    <capability>urn:ietf:params:xml:ns:netconf:capability:candidate:1.0</capability>
+    <capability>urn:ietf:params:xml:ns:netconf:capability:confirmed-commit:1.0</capability>
+    <capability>urn:ietf:params:xml:ns:netconf:capability:validate:1.0</capability>
+    <capability>urn:ietf:params:xml:ns:netconf:capability:url:1.0?protocol=http,ftp,file</capability>
+    <capability>urn:ietf:params:xml:ns:yang:ietf-netconf-monitoring</capability>
+    <capability>http://xml.juniper.net/netconf/junos/1.0</capability>
+    <capability>http://xml.juniper.net/dmi/system/1.0</capability>
+  </capabilities>
+  <session-id>5363</session-id>
+</hello>
+```
 
 Update the /etc/hosts file for name resolution
 
@@ -360,9 +396,12 @@ pfne@ubuntu1804-pfne:~$ tree
 ```
 #### Forward Essentials
 
-To start the collector on the Linux automation host
+Starting the collector on the Linux automation host (it does not run as a service) todo device discovery and snapshots.
+
+Path to Forward Networks collector software '$HOME/.fwd/bin/'
+
+Open a new SSH session to the Linux host and start the collector (if the session or daemon is interrupted then the collector will stop):
 
 ```
 $HOME/.fwd/bin/fwd daemon
 ```
-
