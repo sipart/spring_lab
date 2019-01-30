@@ -1,0 +1,17 @@
+---
+- name: SET_LLDP
+  hosts: JUNIPER
+  roles:
+  - Juniper.junos
+  connection: local
+  gather_facts: no
+
+### JUNOS_SET_CONFIG_SECTION
+  tasks:
+    - name: Set LLDP on all interfaces
+      juniper_junos_config:
+        load: "set"
+        lines:     
+          - "set protocols lldp interface all"
+
+### EOF ###
