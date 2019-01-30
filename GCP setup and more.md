@@ -123,7 +123,7 @@ Set IP on mgmt. interfaces -
 Edit the netplan file to get Linux box networked (Ubuntu 18.04 uses netplan for interface config)
 
 ```
-    sudo nano /etc/netplan/01-netcfg.yaml
+sudo nano /etc/netplan/01-netcfg.yaml
 
 This file describes the network interfaces available on your system
 For more information, see netplan(5).
