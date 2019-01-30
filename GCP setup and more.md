@@ -362,7 +362,7 @@ pfne@ubuntu1804-pfne:~$ tree
 
 To start the collector on the Linux automation host
 
-'''
+```
 $HOME/.fwd/bin/fwd daemon
-'''
+```
 
