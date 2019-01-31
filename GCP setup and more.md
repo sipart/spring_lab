@@ -84,7 +84,7 @@ Issue the following command:
 sysctl -p /etc/sysctl.conf
 ```
 
-Reboot the system and do the following command:
+Reboot the system and issue the following command:
 
 ```
 cat /proc/sys/net/ipv4/ip_forward
@@ -124,7 +124,9 @@ Edit the netplan file to get Linux box networked (Ubuntu 18.04 uses netplan for 
 
 ```
 sudo nano /etc/netplan/01-netcfg.yaml
+```
 
+```
 This file describes the network interfaces available on your system
 For more information, see netplan(5).
 network:
@@ -147,9 +149,8 @@ sudo netplan apply
 
 Check if you can ping 8.8.8.8 :-)
 
-```
 Extras to install on the Linux box:
-
+```
 sudo ansible-galaxy install Juniper.junos
 
 sudo pip2 install git+https://github.com/Juniper/py-junos-eznc.git
@@ -198,7 +199,9 @@ All tools should be setup for Ansible on the Linux host
 
 Lets check netconf to R1 (this assumes SSH RSA key access is working - see above)
 
+```
 pfne@ubuntu1804-pfne:~$ ssh -s pfne@10.132.0.201 netconf
+```
 
 ```
 <!-- No zombies were killed during the creation of this user interface -->
@@ -267,6 +270,8 @@ juniper_user=pfne
 os=junos
 ```
 
+Example file structure
+
 ```
 pfne@ubuntu1804-pfne:~$ tree
 .
@@ -280,6 +285,8 @@ pfne@ubuntu1804-pfne:~$ tree
 │       ├── logs
 │       └── playbooks
 ```
+
+Example playbook to pull configs and interface information and write to a file
 
 ```
 pfne@ubuntu1804-pfne:~$ cat ansible-automation/juniper_core/playbooks/get_conf_and_int.yml
@@ -320,6 +327,8 @@ pfne@ubuntu1804-pfne:~$ cat ansible-automation/juniper_core/playbooks/get_conf_a
 ### EOF ###
 ```
 
+Example of output when running the playbook
+
 ```
 pfne@ubuntu1804-pfne:~$ ansible-playbook ansible-automation/juniper_core/playbooks/get_conf_and_int.yml --limit=MX
 
@@ -359,6 +368,8 @@ r8                         : ok=2    changed=0    unreachable=0    failed=0
 r9                         : ok=2    changed=0    unreachable=0    failed=0
 ```
 
+And the directory structure with the new files created
+
 ```
 pfne@ubuntu1804-pfne:~$ tree
 .
@@ -394,7 +405,10 @@ pfne@ubuntu1804-pfne:~$ tree
 │           ├── get_conf_and_int.retry
 │           └── get_conf_and_int.yml
 ```
+
 #### Forward Essentials
+
+Forward Essentials collects and organizes data about your network automatically producing an always up-to-date topology and inventory. Configuration and state data is searchable network-wide across all your devices.
 
 After installation (you need to sign up [here](https://www.forwardnetworks.com/network-mapping-software/) to get a logon to the web app and download software - essentials is free) start the collector on the Linux automation host (it does not run as a service) to do device discovery and snapshots.
 
