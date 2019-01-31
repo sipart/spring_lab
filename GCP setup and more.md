@@ -398,6 +398,14 @@ pfne@ubuntu1804-pfne:~$ tree
 
 After installation (you need to sign up [here](https://www.forwardnetworks.com/network-mapping-software/) to get a logon to the web app and download software - essentials is free) start the collector on the Linux automation host (it does not run as a service) to do device discovery and snapshots.
 
+Installation on Linux
+
+Open a terminal on the host machine and run this command. No need to use sudo. Your command will most likely differ.
+
+```
+bash <(curl  -s 'https://fwd.app/api/software/client/installScript?token=a3b6f690-92cb-4082-83af-a09f884b8d29') && export PATH=$HOME/.fwd/bin:$PATH
+```
+
 Path to Forward Networks collector software '$HOME/.fwd/bin/'
 
 Open a new SSH session to the Linux host and start the collector (if the session or daemon is interrupted then the collector will stop):
