@@ -17,6 +17,8 @@ At this time the EVE-NG server is in the Google Compute Platform (24 vCPUs, 90 G
 * The pfne user has a local public SSH key to communicate with the network devices from the Linux automation server
 * Initial folder holds the configs for the devices and also exports from EVE-NG of the initial setup (upto page 15 of the book)
 
+* More info on how [here](https://github.com/sipart/spring_lab/blob/master/GCP%20setup%20and%20more.md)
+
 EVE-NG lab topology:
 
 ![jdo-spring](/img/SPRING-lab.png)
