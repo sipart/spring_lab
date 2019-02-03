@@ -8,7 +8,7 @@ Tony Es similar but basic blog [post](https://showipintbri.blogspot.com/2018/08/
 
 Watch alternative [Azure](https://youtu.be/hdUSNWMHbUU) setup by thelantamer
 
-### Notes and steps for this labs setup
+### Notes and steps for this lab setup
 
 I setup my VM in the europe-west1 region due to the need for more cores not availiable in the UK DCs.
 
