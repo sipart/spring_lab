@@ -1,12 +1,14 @@
 ## Resources for setting up EVE-NG in the Google Compute Platform
 
-These resources are ideal for EVE-NG 'cloud' setup - nothing for me to add - everything else is to confgure the detail beyond the linked guides.
+The linked resources below are ideal for EVE-NG 'cloud' setup - after this section everything else are steps I went through for my lab setup.
 
 Comprehensive post by [ithitman](http://ithitman.blogspot.com/2018/04/configuring-eve-ng-on-google-compute.html)
 
 Tony Es similar but basic blog [post](https://showipintbri.blogspot.com/2018/08/eve-ng-in-cloud.html) which points to his comprehensive video on [YouTube](https://www.youtube.com/watch?v=HDHsMgCs0XU)
 
 Watch alternative [Azure](https://youtu.be/hdUSNWMHbUU) setup by thelantamer
+
+### Notes and steps for this labs setup
 
 I setup my VM in the europe-west1 region due to the need for more cores not availiable in the UK DCs.
 
