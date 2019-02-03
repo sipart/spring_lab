@@ -6,9 +6,7 @@
   connection: local
   gather_facts: no
 
-  # Execute tasks (plays) this way "ansible-playbook <path>/GET.yml --tags <tag-name>"
   tasks:
-
 ### JUNOS_GET_CONFIG SECTION
   # Execute "show configuration" and save output to a file
   - name: Pull Down The Configs
