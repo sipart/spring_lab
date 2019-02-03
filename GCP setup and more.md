@@ -416,7 +416,7 @@ After installation (you need to sign up [here](https://www.forwardnetworks.com/n
 
 Installation on Linux
 
-Open a terminal on the host machine and run this command. No need to use sudo. Your command will most likely differ.
+Open a terminal on the host machine and run this command. No need to use sudo. Your command will most likely differ due to the token.
 
 ```
 bash <(curl  -s 'https://fwd.app/api/software/client/installScript?token=a3b6f690-92cb-4082-83af-a09f884b8d29') && export PATH=$HOME/.fwd/bin:$PATH
