@@ -444,8 +444,10 @@ Add a Salt minion - I used a Cumulus VX device - with approppropriate RAM - each
 
 Add the follwing source to the `/etc/apt/sources.list` file so the Salt minion will install 
 
-`deb http://ftp.debian.org/debian stable main contrib non-free`
-`deb http://ftp.us.debian.org/debian/ jessie main contrib non-free`
+````
+deb http://ftp.debian.org/debian stable main contrib non-free
+deb http://ftp.us.debian.org/debian/ jessie main contrib non-free
+````
 
 And then install the Salt minion (same script but without the `-M` switch)
 
