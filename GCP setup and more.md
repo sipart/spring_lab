@@ -442,12 +442,13 @@ sudo sh bootstrap_salt.sh -M
 
 Add a Salt minion - I used a Cumulus VX device - with approppropriate RAM - each proxy minion that will run on the minion will need 100M RAM - you need one proxy minion per Juniper router.
 
-Add the follwing source to the `/etc/apt/sources.list` file so the Salt minion will install 
+Add the follwing sources to the `/etc/apt/sources.list` file so the Salt minion will install 
 
 ````
-deb http://ftp.debian.org/debian stable main contrib non-free
 deb http://ftp.us.debian.org/debian/ jessie main contrib non-free
 ````
+
+Make sure you re-run `sudo apt update` and `sudo apt upgrade` after adding the sources
 
 And then install the Salt minion (same script but without the `-M` switch)
 
