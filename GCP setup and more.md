@@ -329,7 +329,7 @@ pfne@ubuntu1804-pfne:~$ cat ansible-automation/juniper_core/playbooks/get_conf_a
 ### EOF ###
 ```
 
-Example of output when running the playbook
+Example of output when running the playbook - using the `--limit=MX` switch to only run against the vMX routers
 
 ```
 pfne@ubuntu1804-pfne:~$ ansible-playbook ansible-automation/juniper_core/playbooks/get_conf_and_int.yml --limit=MX
