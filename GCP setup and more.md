@@ -431,7 +431,7 @@ $HOME/.fwd/bin/fwd daemon
 ```
 
 
-#### SALTSTACK Setup
+#### [SALTSTACK](https://www.saltstack.com/) Setup
 
 Add Salt master to the Linux automation host
 
