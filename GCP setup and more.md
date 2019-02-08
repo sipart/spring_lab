@@ -447,7 +447,7 @@ pfne@ubuntu1804-pfne:~$ salt --version
 salt 2018.3.3 (Oxygen)
 ```
 
-Add a Salt minion - I used a Cumulus VX device - with approppropriate RAM - each proxy minion that will run on the minion will need 100M RAM - you need one proxy minion per Juniper router.
+Add a Salt minion - I used a Cumulus VX device - with appropriate RAM - each proxy minion that will run on the minion will need 100M RAM - you need one proxy minion per Juniper router.
 
 Add the follwing sources to the `/etc/apt/sources.list` file so the Salt minion will install 
 
