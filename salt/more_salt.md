@@ -1,3 +1,5 @@
+Initial file structure of `/srv/pillar`:
+
 
 ```
 pfne@ubuntu1804-pfne:/srv$ tree -A
@@ -7,7 +9,7 @@ pfne@ubuntu1804-pfne:/srv$ tree -A
     ├── proxy-ce2.sls
     └── top.sls
 ```
-
+Contents of the top.sls file - this file maps the proxy minion to each device:
 ```
 base:
   'ce1':
@@ -15,7 +17,7 @@ base:
   'ce2':
     - proxy-ce2
 ```
-
+Contents of the two proxy config files:
 ```
 proxy:
   proxytype: junos
@@ -33,7 +35,7 @@ proxy:
   password: lab123
   port: 830
 ```
-
+Testing the minion/proxy minion connectivity from the salt master:
 ```
 pfne@ubuntu1804-pfne:/srv$ sudo salt '*' test.ping
 cumulus:
@@ -43,8 +45,7 @@ ce2:
 ce1:
     True
 ```
-
-
+Testing a salt command from the master and the response back:
 ```
 pfne@ubuntu1804-pfne:/srv$ sudo salt -G 'os_family:junos' junos.cli "show interfaces ge-0/0/3 terse"                                                                                               [sudo] password for pfne:
 ce2:
