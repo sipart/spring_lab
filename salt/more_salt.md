@@ -15,6 +15,8 @@ base:
   'ce2':
     - proxy-ce2
 ```
+
+```
 proxy:
   proxytype: junos
   host: 10.132.0.221
