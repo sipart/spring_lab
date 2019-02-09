@@ -24,7 +24,7 @@ At this time the EVE-NG server is in the Google Compute Platform (24 vCPUs, 90 G
 
 EVE-NG lab topology:
 
-![jdo-spring](/img/SPRING-lab.png)
+![jdo-spring](/img/SPRING-lab1.png)
 
 EVE-NG lab topology in Forward Essentials (collector installed on the Linux automation box):
 
