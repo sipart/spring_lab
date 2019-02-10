@@ -17,7 +17,7 @@ base:
   'ce2':
     - proxy-ce2
 ```
-Contents of the two proxy config files:
+Contents of the two proxy .sls files:
 ```
 proxy:
   proxytype: junos
@@ -45,9 +45,10 @@ ce2:
 ce1:
     True
 ```
-Testing a salt command from the master and the response back:
+Testing a salt command from the master and the response back - note the `'os_family:junos'` limiter so the command is only ran against Junos devices:
+
 ```
-pfne@ubuntu1804-pfne:/srv$ sudo salt -G 'os_family:junos' junos.cli "show interfaces ge-0/0/3 terse"                                                                                               [sudo] password for pfne:
+pfne@ubuntu1804-pfne:/srv$ sudo salt -G 'os_family:junos' junos.cli "show interfaces ge-0/0/3 terse"                                     [sudo] password for pfne:
 ce2:
     ----------
     message:
