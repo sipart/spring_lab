@@ -151,7 +151,7 @@ sudo netplan apply
 
 Check if you can ping 8.8.8.8 :-)
 
-Extras to install on the Linux box:
+Extras to install on the Linux box (the automation host already has Openssl, Net-tools (ifconfig..), IPutils (ping, arping, traceroute…), IProute, IPerf, TCPDump, NMAP, Python 2, Python 3, Paramiko (python ssh support), Netmiko (python ssh support), Ansible (automation), Pyntc and NAPALM installed):
 ```
 sudo ansible-galaxy install Juniper.junos
 
