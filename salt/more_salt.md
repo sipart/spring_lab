@@ -2,12 +2,13 @@ Initial file structure of `/srv/pillar`:
 
 
 ```
-pfne@ubuntu1804-pfne:/srv$ tree -A
+pfne@ubuntu1804-pfne:~$ tree
 .
-└── pillar
-    ├── proxy-ce1.sls
-    ├── proxy-ce2.sls
-    └── top.sls
+├── srv
+│   └── pillar
+│       ├── proxy-ce1.sls
+│       ├── proxy-ce2.sls
+│       └── top.sls
 ```
 Contents of the top.sls file - this file maps the proxy minion to each device:
 ```
