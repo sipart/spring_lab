@@ -49,7 +49,8 @@ ce1:
 Testing a salt command from the master and the response back - note the `'os_family:junos'` limiter so the command is only ran against Junos devices:
 
 ```
-pfne@ubuntu1804-pfne:/srv$ sudo salt -G 'os_family:junos' junos.cli "show interfaces ge-0/0/3 terse"                                     [sudo] password for pfne:
+pfne@ubuntu1804-pfne:/srv$ sudo salt -G 'os_family:junos' junos.cli "show interfaces ge-0/0/3 terse"
+
 ce2:
     ----------
     message:
