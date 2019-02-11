@@ -18,11 +18,12 @@ At this time the EVE-NG server is in the Google Compute Platform (24 vCPUs, 90 G
 * Juniper lab user password is lab123
 * Linux automation host root user password is root
 * Linux automation host pfne user password is pfne
+* Ansible has been used and I have created some low level [playbooks](https://github.com/sipart/spring_lab/tree/master/playbooks) to gather some information
 * CumulusVX (Salt minion) cumulus user password is CumulusLinux!
 * The pfne user has a local public SSH key to communicate with the network devices from the Linux automation server
 * Initial folder holds the configs for the devices and also exports from EVE-NG of the initial setup (upto page 15 of the book)
 
-* More info on how [here](https://github.com/sipart/spring_lab/blob/master/GCP%20setup%20and%20more.md)
+* More comprehensive information on how [here](https://github.com/sipart/spring_lab/blob/master/GCP%20setup%20and%20more.md)
 
 EVE-NG lab topology:
 
