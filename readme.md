@@ -6,7 +6,7 @@ Also setup [Forward Essentials](https://www.forwardnetworks.com/network-mapping-
 
 Now with added [Salt!](https://www.saltstack.com/solutions/netops/) helped again by another [Juniper Day One book authored by Peter Klimai](https://github.com/pklimai/day-one-junos-salt) and [Mirceau Linic's](https://twitter.com/mirceaulinic) excellent Salt and automation resouces via his [site](https://mirceaulinic.net/) and [github](https://github.com/mirceaulinic) page.
 
-A set of initial lab configs for a post that will appear on [Tech Snippets](https://sipart.github.io/) in the future (to include detail on using EVE-NG on the Google Compute Platform as well!).
+A set of initial lab configs is included in this repo for a post that will hopefully appear on [Tech Snippets](https://sipart.github.io/) in the future (to include detail on using EVE-NG on the Google Compute Platform as well!).
 
 At this time the EVE-NG server is in the Google Compute Platform (24 vCPUs, 90 GB memory for this lab) as you get $300 worth of credit you can use as you please for 12 months. Azure gives you $250 but limited machine types and only for the first 30 days and Amazon doesn't have machines that support nested virtulization - so no good for EVE-NG.
 
