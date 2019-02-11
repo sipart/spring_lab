@@ -2,7 +2,7 @@
 
 Lab created from the example in the Juniper Day One book [Configuring Segment Routing with Junos](https://www.juniper.net/uk/en/training/jnbooks/day-one/configuring-segment-routing-junos/index.page) by [Julian Lucek](https://twitter.com/julianlucek?lang=en) and [Krzysztof Szarkowicz](https://www.oreilly.com/pub/au/6140)
 
-Now with added [Salt!](https://www.saltstack.com/solutions/netops/) helped again by another [Juniper Day One book authored by Peter Klimai](https://github.com/pklimai/day-one-junos-salt)
+Now with added [Salt!](https://www.saltstack.com/solutions/netops/) helped again by another [Juniper Day One book authored by Peter Klimai](https://github.com/pklimai/day-one-junos-salt) and [Mirceau Linic's](https://twitter.com/mirceaulinic) excellent Salt and automation resouces via his [site](https://mirceaulinic.net/) and [github](https://github.com/mirceaulinic) page.
 
 A set of initial lab configs for a post that will appear on [Tech Snippets](https://sipart.github.io/) in the future (to include detail on using EVE-NG on the Google Compute Platform as well!)
 
