@@ -1,0 +1,36 @@
+# This is the default ansible 'hosts' file.
+#
+# It should live in /etc/ansible/hosts
+#
+#   - Comments begin with the '#' character
+#   - Blank lines are ignored
+#   - Groups of hosts are delimited by [header] elements
+#   - You can enter hostnames or ip addresses
+#   - A hostname/ip can be a member of multiple groups
+
+[MX]
+r1 ansible_connection=local
+r2 ansible_connection=local
+r3 ansible_connection=local
+r4 ansible_connection=local
+r5 ansible_connection=local
+r6 ansible_connection=local
+r7 ansible_connection=local
+r8 ansible_connection=local
+r9 ansible_connection=local
+
+[SRX]
+ce1 ansible_connection=local
+ce2 ansible_connection=local
+ce3 ansible_connection=local
+ce4 ansible_connection=local
+ce5 ansible_connection=local
+ce6 ansible_connection=local
+
+[JUNIPER:children]
+MX
+SRX
+
+[JUNIPER:vars]
+juniper_user=pfne
+os=junos
