@@ -36,6 +36,11 @@ proxy:
   password: lab123
   port: 830
 ```
+Start the proxy minions
+```
+sudo salt-proxy --proxyid=ce1 -d
+sudo salt-proxy --proxyid=ce2 -d
+```
 Testing the minion/proxy minion connectivity from the salt master:
 ```
 pfne@ubuntu1804-pfne:/srv$ sudo salt '*' test.ping
@@ -47,7 +52,6 @@ ce1:
     True
 ```
 Testing a salt command from the master and the response back - note the `'os_family:junos'` limiter so the command is only ran against Junos devices:
-
 ```
 pfne@ubuntu1804-pfne:/srv$ sudo salt -G 'os_family:junos' junos.cli "show interfaces ge-0/0/3 terse"
 
@@ -70,6 +74,3 @@ ce1:
     out:
         True
 ```
-
-
-
