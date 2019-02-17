@@ -4,7 +4,7 @@ The linked resources below are ideal for EVE-NG 'cloud' setup - further informat
 
 Comprehensive post by [ithitman](http://ithitman.blogspot.com/2018/04/configuring-eve-ng-on-google-compute.html)
 
-Tony Es similar but basic blog [post](https://showipintbri.blogspot.com/2018/08/eve-ng-in-cloud.html) which points to his comprehensive video on [YouTube](https://www.youtube.com/watch?v=HDHsMgCs0XU)
+Tony Es similar but basic blog [post](https://showipintbri.blogspot.com/2018/08/eve-ng-in-cloud.html) which points to his comprehensive video on [YouTube](https://www.youtube.com/watch?v=HDHsMgCs0XU) - NOTE: take specual attention to section at 28:34 about GCP kernel!
 
 Watch alternative [Azure](https://youtu.be/hdUSNWMHbUU) setup by thelantamer
 
