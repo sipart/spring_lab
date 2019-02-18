@@ -12,7 +12,9 @@ Watch alternative [Azure](https://youtu.be/hdUSNWMHbUU) setup by thelantamer
 
 I setup my VM in the europe-west1 region due to the need for more cores not availiable in the UK DCs.
 
-10.132.0.0/20 is the europe-west1 region VPC
+GCP - europe-west1 region VPC - 10.132.0.0/20
+
+AZURE West Europe - 10.0.1.0/24 (EVE-NG 10.0.1.5 D/G 10.0.1.1)
 
 #### Cloud9 setup on EVE-NG server - allows Internet access for Linux host in topology and EVE-NG/Linux host access to network device mgmt. - commands assume logged in as root.
 
