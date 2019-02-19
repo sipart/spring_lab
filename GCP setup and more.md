@@ -16,7 +16,7 @@ GCP - europe-west1 region VPC - 10.132.0.0/20
 
 AZURE West Europe - 10.0.1.0/24 (EVE-NG 10.0.1.5 D/G 10.0.1.1)
 
-#### Cloud9 setup on EVE-NG server - allows Internet access for Linux host in topology and EVE-NG/Linux host access to network device mgmt. - commands assume logged in as root.
+#### [Cloud9 setup on EVE-NG server](https://d-herrmann.de/2018/04/nat-cloud-in-eve-ng-community-edition/) - allows Internet access for Linux host in topology and EVE-NG/Linux host access to network device mgmt. - commands assume logged in as root. 
 
 ```
 ip address add 10.132.0.10/20 dev pnet9
