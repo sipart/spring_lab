@@ -36,7 +36,7 @@ shutdown -r now
 
 
 
-
+```
 [ 1906.162600] reboot: Restarting system
 [H[J[1;1H[H[J[1;1H[    0.000000] Linux version 4.9.40-eve-ng-ukms-2+ (root@eve-ng) (gcc version 5.4.0 20160609 (Ubuntu 5.4.0-6ubuntu1~16.04.4) ) #4 SMP Fri Sep 15 02:07:02 CEST 2017
 [    0.000000] Command line: BOOT_IMAGE=/boot/vmlinuz-4.9.40-eve-ng-ukms-2+ root=UUID=73e9659d-2fd9-46ca-a341-5a8637c416ee ro net.ifnames=0 console=tty1 console=ttyS0 earlyprintk=ttyS0 rootdelay=300
@@ -3728,3 +3728,4 @@ cord successful boot for GRUB...
 [  604.636008]  [<ffffffff9bca5380>] ? kthread_park+0x60/0x60
 [  604.636008]  [<ffffffff9c49eeb5>] ret_from_fork+0x25/0x30
 [  604.636008] Code: 63 d2 e8 43 c4 32 00 3b 05 d1 02 e8 00 89 c1 0f 8d 9a fe ff ff 48 98 49 8b 16 48 03 14 c5 c0 c3 93 9c 8b 42 18 a8 01 74 09 f3 90 <8b> 42 18 a8 01 75 f7 eb bd 0f b6 4d d0 4c 89 ea 4c 89 e6 44 89 
+```
