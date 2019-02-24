@@ -132,7 +132,7 @@ uname -a
 Linux sipart-eve 4.9.40-eve-ng-ukms-2+ #4 SMP Fri Sep 15 02:07:02 CEST 2017 x86_64 x86_64 x86_64 GNU/Linux
 ```
 
-* Troubleshoot the above in Azure
+* Doing the above in Azure will render the VM unbootable - see below to get the VM bootable and reverse the kernel move
 
 Go into serial console after starting the VM
 
