@@ -96,7 +96,7 @@ uname -a
 
 Linux eve-ng 4.15.0-1037-azure #39~16.04.1-Ubuntu SMP Tue Jan 15 17:20:47 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
 ```
-Create new directory `/boot` and move cloud image kernels into it
+Create new directory `/boot` and move the 'cloud' image kernels then update grub 
 ```
 root@eve-ng:~# cd /boot
 root@eve-ng:/boot# mkdir ./old/
