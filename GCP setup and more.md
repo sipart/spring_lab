@@ -432,6 +432,7 @@ Open a new SSH session to the Linux host and start the collector (if the session
 $HOME/.fwd/bin/fwd daemon
 ```
 
+The Forward Essentials portal is accessed [here](https://app.forwardnetworks.com)
 
 #### [Salt](https://www.saltstack.com/solutions/netops/) Setup
 
