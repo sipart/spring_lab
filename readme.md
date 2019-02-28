@@ -31,3 +31,6 @@ EVE-NG lab topology:
 EVE-NG lab topology in Forward Essentials (collector installed on the Linux automation box):
 
 ![fwd-essentials](/img/springcoreinFWDess1.png)
+
+
+![fwd-essentials](/img/springcoreinFWDess2.png)
