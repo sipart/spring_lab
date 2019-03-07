@@ -87,7 +87,8 @@ az disk update \
     --size-gb 100
 ```
 
-** DO NOT DO THE BELOW IN AZURE
+** ```DO NOT DO THE BELOW IN AZURE - LEAVE THE KERNEL IN THE VM USING THE AZURE ONE ``` **
+
 * Move of GCP or Azure kernel - DOES NOT WORK (works in GCP) - makes VM unbootable - info' for future reference if I can find out how to get this working!!
 
 Check kernel in use
