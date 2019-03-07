@@ -4,7 +4,7 @@ Lab created from the example in the Juniper Day One book [Configuring Segment Ro
 
 Also setup [Forward Essentials](https://www.forwardnetworks.com/network-mapping-software/) (as it's free) to crawl and map the lab.
 
-Now with added [Salt!](https://www.saltstack.com/solutions/netops/) helped again by another [Juniper Day One book authored by Peter Klimai](https://github.com/pklimai/day-one-junos-salt) and [Mirceau Linic's](https://twitter.com/mirceaulinic) excellent Salt and automation resouces via his [site](https://mirceaulinic.net/) and [github](https://github.com/mirceaulinic) page.
+Now with added [Salt!](https://www.saltstack.com/solutions/netops/) helped again by another [Juniper Day One book authored by Peter Klimai](https://github.com/pklimai/day-one-junos-salt) and [Mircea Ulinic's](https://twitter.com/mirceaulinic) excellent Salt and automation resouces via his [site](https://mirceaulinic.net/) and [github](https://github.com/mirceaulinic) page.
 
 A set of initial lab configs is included in this repo for a post that will hopefully appear on [Tech Snippets](https://sipart.github.io/) in the future (to include detail on using EVE-NG on the Google Compute Platform as well!).
 
