@@ -69,7 +69,7 @@ sudo shutdown -r now
 ```
 
 
-* Re-sizing the 30G disks you get in Azure (EVE-NG only uses the first disk so even though the size of VM I used has an additional 315G disk it is no use for EVE-NG)
+* How to re-size the temp storage disk you get in Azure (EVE-NG only uses the first disk so even though the size of VM I used has an additional 315G disk it is no use for EVE-NG)
 https://docs.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks
 
 ```
