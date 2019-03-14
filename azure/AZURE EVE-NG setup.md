@@ -1,6 +1,9 @@
 * Azure setup
 
-* Standard E20s_v3 (20 vcpus, 160 GB memory)
+* Use a VM with 's_v3' in the name
+
+![nv-azure_s_v3](/img/azure_s_v3.png)
+
 * Set auth as a username and password of your choosing i.e. evengadmin
     * Setup FW rule
         * Source IP = HOME DSL PUBLIC IP
