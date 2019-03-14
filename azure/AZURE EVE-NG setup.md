@@ -1,6 +1,6 @@
 * Azure setup
 
-* Use a VM with 's_v3' in the name - no need to provision with premium disk support
+* Use a VM with 's_v3' in the name - no need to provision with premium disk support and do not worry about the size of the temp storage as you can expand this later (see instruction below)
 
 ![nv-azure_s_v3](/img/azure_s_v3.png)
 
