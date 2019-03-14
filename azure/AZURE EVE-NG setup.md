@@ -1,7 +1,7 @@
 * Azure setup
 
 * Standard E20s_v3 (20 vcpus, 160 GB memory)
-* Set auth as a usernme and password of your choosing i.e. evengadmin
+* Set auth as a username and password of your choosing i.e. evengadmin
     * Setup FW rule
         * Source IP = HOME DSL PUBLIC IP
         * Source port = any
