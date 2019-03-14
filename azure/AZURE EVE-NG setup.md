@@ -94,6 +94,8 @@ az disk update \
 ```
 Re-start you VM
 
+You are now ready to browse to your EVE-NG and check all is OK - and transfer images - check out the [EVE-NG cookbook](https://www.eve-ng.net/images/EVE-COOK-BOOK-1.8.pdf) for guidance
+
 
 ** ```DO NOT DO THE BELOW IN AZURE - LEAVE THE KERNEL IN THE VM USING THE AZURE ONE ``` **
 
