@@ -1,6 +1,6 @@
 * Azure setup
 
-* Use a VM with 's_v3' in the name
+* Use a VM with 's_v3' in the name - no need to provision with premium disk support
 
 ![nv-azure_s_v3](/img/azure_s_v3.png)
 
