@@ -1,4 +1,4 @@
-* Azure setup
+* Azure setup for EVE-NG community edition
 
 * Use a VM with 's_v3' in the name - no need to provision with premium disk support and do not worry about the size of the temp storage as you can expand this later (see instruction below)
 
