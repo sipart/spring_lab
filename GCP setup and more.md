@@ -472,3 +472,13 @@ Check version
 cumulus@cumulus:~$ salt-minion --version
 salt-minion 2018.3.3 (Oxygen)
 ```
+
+#### Adding an extra Linux host for docker
+
+Add the same Linux image used before and configure netplan with a new IP
+
+Follow this [guide to install docker](https://linuxize.com/post/how-to-install-and-use-docker-on-ubuntu-18-04/)
+
+
+
+
