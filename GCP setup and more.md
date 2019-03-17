@@ -479,6 +479,6 @@ Add the same Linux image used before and configure netplan with a new IP
 
 Follow this [guide to install docker](https://linuxize.com/post/how-to-install-and-use-docker-on-ubuntu-18-04/)
 
-
+Follow this [guide to install docker compose](https://linuxize.com/post/how-to-install-and-use-docker-compose-on-ubuntu-18-04/) - this allows you to define and manage multi-container Docker applications
 
 
