@@ -481,4 +481,6 @@ Follow this [guide to install docker](https://linuxize.com/post/how-to-install-a
 
 Follow this [guide to install docker compose](https://linuxize.com/post/how-to-install-and-use-docker-compose-on-ubuntu-18-04/) - this allows you to define and manage multi-container Docker applications
 
+Example [docker-compose](https://github.com/geerlingguy/awx-container/blob/master/docker-compose.yml) file for Ansible AWX
+
 
