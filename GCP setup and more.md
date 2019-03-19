@@ -483,4 +483,5 @@ Follow this [guide to install docker compose](https://linuxize.com/post/how-to-i
 
 Example [docker-compose](https://github.com/geerlingguy/awx-container/blob/master/docker-compose.yml) file for Ansible AWX
 
+Example [docker-compose](https://github.com/netbox-community/netbox-docker) file for NetBox
 
