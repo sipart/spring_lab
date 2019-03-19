@@ -122,7 +122,7 @@ Set IP on mgmt. interfaces -
 
 10.132.0.221/20 and up for CEs
 
-#### Add automation Linux box image ([18.04 Ubuntu server](https://ipnet.xyz/2018/06/ubuntu-image-for-eve-ng-python-for-network-engineers/)) to EVE-NG and add to any topology - login as pfne.
+#### Add automation Linux box image by Calin @ https://ipnet.xyz ([18.04 Ubuntu server](https://ipnet.xyz/2018/06/ubuntu-image-for-eve-ng-python-for-network-engineers/)) to EVE-NG and add to any topology - login as pfne.
 
 Edit the netplan file to get Linux box networked (Ubuntu 18.04 uses netplan for interface config)
 
@@ -475,7 +475,7 @@ salt-minion 2018.3.3 (Oxygen)
 
 #### Adding an extra Linux host for docker
 
-Add the same Ubuntu 18.04 Linux image used before and configure netplan with a new IP
+Add the same Ubuntu 18.04 Linux image used above and configure (by editing netplan.yml) with a new IP as before
 
 Follow this [guide to install docker](https://linuxize.com/post/how-to-install-and-use-docker-on-ubuntu-18-04/)
 
