@@ -122,7 +122,7 @@ Set IP on mgmt. interfaces -
 
 10.132.0.221/20 and up for CEs
 
-#### Add automation Linux box image by Calin @ https://ipnet.xyz ([18.04 Ubuntu server](https://ipnet.xyz/2018/06/ubuntu-image-for-eve-ng-python-for-network-engineers/)) to EVE-NG and add to any topology - login as pfne.
+#### Use this pre-built automation Ubuntu 18.04 Linux box image by Calin @ https://ipnet.xyz - download from here [18.04 Ubuntu server](https://ipnet.xyz/2018/06/ubuntu-image-for-eve-ng-python-for-network-engineers/)) and add to EVE-NG and add to any topology - login as pfne.
 
 Edit the netplan file to get Linux box networked (Ubuntu 18.04 uses netplan for interface config)
 
