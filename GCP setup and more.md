@@ -1,14 +1,12 @@
 ## Resources for setting up EVE-NG in the Google Compute Platform
 
-The linked resources below by ithitman, Tony E and thelantamer are ideal for EVE-NG 'cloud' setup - the further steps in this document are related to the extra configuration I went through for my lab setup.
-
 Credits go-to:
 
 * This comprehensive post by [ithitman](http://ithitman.blogspot.com/2018/04/configuring-eve-ng-on-google-compute.html)
 
 * Tony Es similar but basic blog [post](https://showipintbri.blogspot.com/2018/08/eve-ng-in-cloud.html) which points to his comprehensive video on [YouTube](https://www.youtube.com/watch?v=HDHsMgCs0XU) - NOTE: take special attention to section at 28:34 about GCP kernel!
 
-* And also watch this alternative [Azure](https://youtu.be/hdUSNWMHbUU) setup by thelantamer
+* And also watch this alternative [Azure](https://youtu.be/hdUSNWMHbUU) setup by thelantamer - see my setup guide [here](https://github.com/sipart/spring_lab/blob/master/azure/AZURE%20EVE-NG%20setup.md) for EVE-NG in Azure
 
 * The key and first element of the setup of EVE-NG in GCP is creating a GCP image that has nested virtialsation enabled and then when adding a VM sized to your choosing it having the Boot disk set using that image. The new image is based off an existing Ubuntu 16.04 GCP image
 
