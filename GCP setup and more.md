@@ -15,7 +15,7 @@ Credits go-to:
 gcloud compute images create nested-virt-ubuntu --source-image-project=ubuntu-os-cloud --source-image-family=ubuntu-1604-lts --licenses="https://www.google.com/compute/v1/projects/vm-options/global/licenses/enable-vmx"
 ```
 
-* You can then go ahead and create a new VM with this Boot disk
+* You can then go ahead and create a new VM with this Boot disk ensuring the disk is of an adequate size (suggest 60Gb+)
 
 ### Notes and steps for this lab setup
 
