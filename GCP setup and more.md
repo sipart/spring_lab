@@ -10,12 +10,14 @@ Credits go-to:
 
 * And also watch this alternative [Azure](https://youtu.be/hdUSNWMHbUU) setup by thelantamer
 
-* The key and first element of the setup of EVE-NG in GCP is creating a GCP image that has nested virtialsation enabled and then when adding a VM sized to your choosing it having the Boot Disk set using that image.
+* The key and first element of the setup of EVE-NG in GCP is creating a GCP image that has nested virtialsation enabled and then when adding a VM sized to your choosing it having the Boot disk set using that image. The new image is based off an existing Ubuntu 16.04 GCP image
 
 * So before doing anything use the Google Cloud Shell to create this image which will be called nested-virt-ubuntu
 ```
 gcloud compute images create nested-virt-ubuntu --source-image-project=ubuntu-os-cloud --source-image-family=ubuntu-1604-lts --licenses="https://www.google.com/compute/v1/projects/vm-options/global/licenses/enable-vmx"
 ```
+
+* You can then go ahead and create a new VM with this Boot disk
 
 ### Notes and steps for this lab setup
 
