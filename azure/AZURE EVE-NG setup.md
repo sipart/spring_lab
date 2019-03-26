@@ -94,4 +94,8 @@ az disk update \
 ```
 Re-start you VM
 
-You are now ready to browse to your EVE-NG and check all is OK - and transfer images - check out the [EVE-NG cookbook](https://www.eve-ng.net/images/EVE-COOK-BOOK-1.8.pdf) for guidance
+You are now ready to browse to your EVE-NG and check all is OK - and transfer images - check out the [EVE-NG cookbook](https://www.eve-ng.net/images/EVE-COOK-BOOK-1.8.pdf) for guidance. Also worthwhile installing the client side pack for you PC avaliable for [Linux](https://www.eve-ng.net/downloads/linux-client-side) and [Windows.](https://www.eve-ng.net/downloads/windows-client-side-pack)
+
+You will also need an extra firewall rule to allow the console type connections to your devices to do some intiial config - example rule set below (eve-ng-int-inbound):
+
+![azure_fw](/img/azure_fw.png)
