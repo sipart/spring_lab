@@ -16,12 +16,68 @@ gcloud compute images create nested-virt-ubuntu --source-image-project=ubuntu-os
 ```
 
 * You can then go ahead and create a new VM with this Boot disk ensuring the disk is of an adequate size (suggest 60Gb+)
+* Setup FW rules for your choosen VPC network
 
-### Notes and steps for this lab setup
+![gcp_fw](/img/gcp_fw.png)
 
+* Boot up VM and SSH (via portal SSH) and set root password
+```
+sudo passwd root
+Enter new UNIX password:
+Retype new UNIX password:
+passwd: password updated successfully
+```
+
+* Set abiity to login as root
+```
+sudo nano /etc/ssh/sshd_config
+```
+Change:
+```
+PermitRootLogin yes
+
+PasswordAuthentication yes
+```
+
+* Change interface name to "eth0" (if needed!)
+```
+nano /etc/udev/rules.d/70-persistent-net.rules
+```
+Update/Upgrade and Reboot
+```
+sudo apt update
+
+audo apt upgrade
+
+sudo shutdown -r now
+```
+* Logon via desktop SSH client as root and install eve-ng
+```
+wget -O - http://www.eve-ng.net/repo/install-eve.sh | bash -i 
+```
+Reboot
+```
+sudo shutdown -r now
+```
+
+* You will get prompts for root password and other settings which you can just accept and then VM will reboot again
+
+
+* Update grub to set this default
+```
+sed -i -e  's/GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="net.ifnames=0 noquiet"/' /etc/default/grub
+
+update-grub
+```
+Reboot
+```
+sudo shutdown -r now
+```
+
+### Other notes and steps for this lab setup
 I setup my VM in the europe-west1 region due to the need for more cores not availiable in the UK DCs.
 
-GCP - europe-west1 region VPC - 10.132.0.0/20
+I used the GCP - europe-west1 region VPC in the following example changes - 10.132.0.0/20
 
 #### [Cloud9 setup on EVE-NG server](https://d-herrmann.de/2018/04/nat-cloud-in-eve-ng-community-edition/) - allows Internet access for Linux host in topology and EVE-NG/Linux host access to network device mgmt. - commands assume logged in as root. 
 
