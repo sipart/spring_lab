@@ -34,6 +34,62 @@ Reboot
 shutdown -r now
 ```
 
+** ```DO NOT DO THE BELOW IN AZURE - LEAVE THE KERNEL IN THE VM USING THE AZURE ONE ``` **
+
+* Move of GCP or Azure kernel - DOES NOT WORK (works in GCP) - makes VM unbootable - info' for future reference if I can find out how to get this working!!
+
+Check kernel in use
+```
+uname -a
+
+Linux eve-ng 4.15.0-1037-azure #39~16.04.1-Ubuntu SMP Tue Jan 15 17:20:47 UTC 2019 x86_64 x86_64 x86_64 GNU/Linux
+```
+Create new directory `/boot` and move the 'cloud' image kernels then update grub 
+```
+root@eve-ng:~# cd /boot
+root@eve-ng:/boot# mkdir ./old/
+```
+```
+root@eve-ng:/boot# ls
+config-4.15.0-1037-azure          old
+config-4.9.40-eve-ng-ukms-2+      System.map-4.15.0-1037-azure
+grub                              System.map-4.9.40-eve-ng-ukms-2+
+initrd.img-4.15.0-1037-azure      vmlinuz-4.15.0-1037-azure
+initrd.img-4.9.40-eve-ng-ukms-2+  vmlinuz-4.9.40-eve-ng-ukms-2+
+```
+```
+root@eve-ng:/boot# mv *4.15* ./old/
+```
+
+```
+update-grub
+
+Generating grub configuration file ...
+Found linux image: /boot/vmlinuz-4.9.40-eve-ng-ukms-2+
+Found initrd image: /boot/initrd.img-4.9.40-eve-ng-ukms-2+
+done
+```
+Reboot
+```
+shutdown -r now
+```
+Check kernel in use
+```
+uname -a
+
+Linux sipart-eve 4.9.40-eve-ng-ukms-2+ #4 SMP Fri Sep 15 02:07:02 CEST 2017 x86_64 x86_64 x86_64 GNU/Linux
+```
+
+* Doing the above in Azure will render the VM unbootable - see below to get the VM bootable and reverse the kernel move
+
+Go into serial console after starting the VM
+
+Stab the ESC key until you get the grub menu (you may have to reboot the VM to catch the grub menu)
+
+Go into advanced options and press 'e' to edit the grub file and alter the paths to the 'old' kernel and initrd files.
+
+Once booted you can login, move the files back and update-grub - phewww!
+
 
 
 ```
