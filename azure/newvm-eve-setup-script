@@ -1,0 +1,82 @@
+VM Standard E16s v3 (16 vcpus, 128 GB memory)
+32G data disk - 256G temp storage
+
+root@eve-ng:/# ls -la
+total 104
+drwxr-xr-x  24 root root  4096 Apr 23 14:43 .
+drwxr-xr-x  24 root root  4096 Apr 23 14:43 ..
+drwxr-xr-x   2 root root  4096 Apr 23 14:45 bin
+drwxr-xr-x   3 root root  4096 Apr 23 14:45 boot
+drwxr-xr-x  17 root root  4040 Apr 23 14:43 dev
+drwxr-xr-x 112 root root  4096 Apr 23 14:45 etc
+drwxr-xr-x   3 root root  4096 Apr 23 14:25 home
+lrwxrwxrwx   1 root root    33 Apr  6 13:40 initrd.img -> boot/initrd.img-4.15.0-1041-azure
+lrwxrwxrwx   1 root root    33 Apr  6 13:41 initrd.img.old -> boot/initrd.img-4.15.0-1041-azure
+drwxr-xr-x  22 root root  4096 Apr 23 14:39 lib
+drwxr-xr-x   2 root root  4096 Apr 23 14:37 lib32
+drwxr-xr-x   2 root root  4096 Apr  6 08:14 lib64
+drwx------   2 root root 16384 Apr  6 08:27 lost+found
+drwxr-xr-x   2 root root  4096 Apr  6 08:12 media
+drwxr-xr-x   3 root root  4096 Apr 23 14:25 mnt
+drwxr-xr-x  13 root root  4096 Apr 23 14:38 opt
+dr-xr-xr-x 271 root root     0 Apr 23 14:43 proc
+-rw-------   1 root root  1024 Apr 23 14:42 .rnd
+drwx------   3 root root  4096 Apr 23 14:59 root
+drwxr-xr-x  30 root root  1160 Apr 23 14:59 run
+drwxr-xr-x   2 root root 12288 Apr 23 14:44 sbin
+drwxr-xr-x   2 root root  4096 Apr 23 14:25 snap
+drwxr-xr-x   2 root root  4096 Apr  6 08:12 srv
+dr-xr-xr-x  13 root root     0 Apr 23 14:47 sys
+drwxrwxrwt   9 root root  4096 Apr 23 14:45 tmp
+drwxr-xr-x  11 root root  4096 Apr 23 14:37 usr
+drwxr-xr-x  14 root root  4096 Apr 23 14:35 var
+lrwxrwxrwx   1 root root    30 Apr  6 13:40 vmlinuz -> boot/vmlinuz-4.15.0-1041-azure
+lrwxrwxrwx   1 root root    30 Apr  6 13:41 vmlinuz.old -> boot/vmlinuz-4.15.0-1041-azure
+
+
+root@eve-ng:/# df -H
+Filesystem      Size  Used Avail Use% Mounted on
+udev             68G     0   68G   0% /dev
+tmpfs            14G   20M   14G   1% /run
+/dev/sda1        32G  3.3G   28G  11% /
+tmpfs            68G     0   68G   0% /dev/shm
+tmpfs           5.3M     0  5.3M   0% /run/lock
+tmpfs            68G     0   68G   0% /sys/fs/cgroup
+/dev/sdb1       271G   62M  257G   1% /mnt
+tmpfs            14G     0   14G   0% /run/user/0
+
+
+root@eve-ng:/# fdisk -l
+Disk /dev/sda: 30 GiB, 32212254720 bytes, 62914560 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+Disklabel type: dos
+Disk identifier: 0x7dd47bb0
+
+Device     Boot Start      End  Sectors Size Id Type
+/dev/sda1  *     2048 62914526 62912479  30G 83 Linux
+
+
+Disk /dev/sdb: 256 GiB, 274877906944 bytes, 536870912 sectors
+Units: sectors of 1 * 512 = 512 bytes
+Sector size (logical/physical): 512 bytes / 4096 bytes
+I/O size (minimum/optimal): 4096 bytes / 4096 bytes
+Disklabel type: dos
+Disk identifier: 0x4e45d3ae
+
+Device     Boot Start       End   Sectors  Size Id Type
+/dev/sdb1         128 536868863 536868736  256G  7 HPFS/NTFS/exFAT
+
+
+root@eve-ng:/# ls -l /dev/disk/by-id/
+total 0
+lrwxrwxrwx 1 root root  9 Apr 23 14:43 ata-Virtual_CD -> ../../sr0
+lrwxrwxrwx 1 root root  9 Apr 23 14:43 scsi-36002248084c7f56a0a2e09f21ca9db39 -> ../../sda
+lrwxrwxrwx 1 root root 10 Apr 23 14:43 scsi-36002248084c7f56a0a2e09f21ca9db39-part1 -> ../../sda1
+lrwxrwxrwx 1 root root  9 Apr 23 14:43 scsi-360022480cc99c0f9333fe2649dc67b4b -> ../../sdb
+lrwxrwxrwx 1 root root 10 Apr 23 14:43 scsi-360022480cc99c0f9333fe2649dc67b4b-part1 -> ../../sdb1
+lrwxrwxrwx 1 root root  9 Apr 23 14:43 wwn-0x6002248084c7f56a0a2e09f21ca9db39 -> ../../sda
+lrwxrwxrwx 1 root root 10 Apr 23 14:43 wwn-0x6002248084c7f56a0a2e09f21ca9db39-part1 -> ../../sda1
+lrwxrwxrwx 1 root root  9 Apr 23 14:43 wwn-0x60022480cc99c0f9333fe2649dc67b4b -> ../../sdb
+lrwxrwxrwx 1 root root 10 Apr 23 14:43 wwn-0x60022480cc99c0f9333fe2649dc67b4b-part1 -> ../../sdb1
