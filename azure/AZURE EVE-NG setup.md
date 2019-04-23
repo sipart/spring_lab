@@ -69,7 +69,8 @@ sudo shutdown -r now
 ```
 
 
-* How to re-size the temp storage disk you get in Azure (EVE-NG only uses the first disk so even though the size of VM I used has an additional 315G disk it is no use for EVE-NG)
+* How to re-size the main smaller disk you get in Azure (EVE-NG only uses the first disk so even though the size of VM I used has an additional 315G disk it is no use for EVE-NG). Optionally you could add a second disk and mount the /opt directory in it (/opt is where all the EVE-NG images and labs are stored).
+
 https://docs.microsoft.com/en-us/azure/virtual-machines/linux/expand-disks
 
 Power the VM down and copy the following into the VMs cloud shell to get the current size and disk name - your resource-group may be different:
