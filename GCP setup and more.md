@@ -15,7 +15,7 @@ Credits go-to:
 gcloud compute images create nested-virt-ubuntu --source-image-project=ubuntu-os-cloud --source-image-family=ubuntu-1604-lts --licenses="https://www.google.com/compute/v1/projects/vm-options/global/licenses/enable-vmx"
 ```
 
-* You can then go ahead and create a new VM with this Boot disk ensuring the disk is of an adequate size (suggest 60Gb+)
+* You can then go ahead and create a new VM with this Boot disk ensuring the disk is of an adequate size (suggest 100Gb+)
 * Setup FW rules for your choosen VPC network
 
 ![gcp_fw](/img/gcp_fw.png)
@@ -77,14 +77,14 @@ sudo shutdown -r now
 ### Other notes and steps for this lab setup
 I setup my VM in the europe-west1 region due to the need for more cores not availiable in the UK DCs.
 
-I used the GCP - europe-west1 region VPC in the following example changes - 10.132.0.0/20
+I used the GCP - europe-west2 region VPC in the following example changes - 10.154.0.0/20
 
 #### [Cloud9 setup on EVE-NG server](https://d-herrmann.de/2018/04/nat-cloud-in-eve-ng-community-edition/) - allows Internet access for Linux host in topology and EVE-NG/Linux host access to network device mgmt. - commands assume logged in as root. 
 
 ```
-ip address add 10.132.0.10/20 dev pnet9
+ip address add 10.154.0.10/20 dev pnet9
 echo 1 > /proc/sys/net/ipv4/ip_forward
-iptables -t nat -A POSTROUTING -o pnet0 -s 10.132.0.0/20 -j MASQUERADE
+iptables -t nat -A POSTROUTING -o pnet0 -s 10.154.0.0/20 -j MASQUERADE
 ```
 
 ##### To make pnet9 IP persistent
@@ -101,7 +101,7 @@ Edit eth9 for your preferred IP
     iface eth9 inet manual
     auto pnet9
     iface pnet9 inet static
-        address 10.132.0.10
+        address 10.154.0.10
         netmask 255.255.240.0
         bridge_ports eth9
         bridge_stp off
@@ -165,14 +165,14 @@ Check routing on the EVE-NG server:
 root@sipart-eve:~# route
 Kernel IP routing table
 Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
-default         10.132.0.1      0.0.0.0         UG    0      0        0 pnet0
-10.132.0.0      *               255.255.240.0   U     0      0        0 pnet9
-10.132.0.1      *               255.255.255.255 UH    0      0        0 pnet0
+default         10.154.0.1      0.0.0.0         UG    0      0        0 pnet0
+10.154.0.0      *               255.255.240.0   U     0      0        0 pnet9
+10.154.0.1      *               255.255.255.255 UH    0      0        0 pnet0
 
 root@sipart-eve:~# ip route list
-default via 10.132.0.1 dev pnet0
-10.132.0.0/20 dev pnet9  proto kernel  scope link  src 10.132.0.10
-10.132.0.1 dev pnet0  scope link
+default via 10.154.0.1 dev pnet0
+10.154.0.0/20 dev pnet9  proto kernel  scope link  src 10.154.0.10
+10.154.0.1 dev pnet0  scope link
 ```
 
 #### Setup of network device mgmt. and Linux box mgmt.
@@ -181,9 +181,9 @@ Connect devices mgmt. ints (fxp0 on vMX) to cloud9 network object
 
 Set IP on mgmt. interfaces -
 
-10.132.0.201/20 and up for PEs
+10.154.0.201/20 and up for PEs
 
-10.132.0.221/20 and up for CEs
+10.154.0.221/20 and up for CEs
 
 #### Use this pre-built automation Ubuntu 18.04 Linux box image by Calin @ https://ipnet.xyz - download from here [18.04 Ubuntu server](https://ipnet.xyz/2018/06/ubuntu-image-for-eve-ng-python-for-network-engineers/)) and add to EVE-NG and add to any topology - login as pfne.
 
@@ -201,8 +201,8 @@ network:
   renderer: networkd
   ethernets:
     ens3:
-     addresses: [10.132.0.200/20]
-     gateway4: 10.132.0.2
+     addresses: [10.154.0.200/20]
+     gateway4: 10.154.0.10
      nameservers:
        addresses: [8.8.8.8, 1.1.1.1]
      dhcp4: no
@@ -236,7 +236,7 @@ ssh-keygen -t rsa -b 2048
 Use SSH copy util to copy SSH key of current logged in Linux host account to Juniper boxes in this case 'pfne' (make sure a superuser account already exists on the Juniper device - in this case the 'lab' user)
 
 ```
-pfne@ubuntu1804-pfne:~$ ssh-copy-net 10.132.0.201 juniper
+pfne@ubuntu1804-pfne:~$ ssh-copy-net 10.154.0.201 juniper
 Username: lab
 Password: lab123
 All Done!
@@ -267,7 +267,7 @@ All tools should be setup for Ansible on the Linux host
 Lets check netconf to R1 (this assumes SSH RSA key access is working - see above)
 
 ```
-pfne@ubuntu1804-pfne:~$ ssh -s pfne@10.132.0.201 netconf
+pfne@ubuntu1804-pfne:~$ ssh -s pfne@10.154.0.201 netconf
 ```
 
 ```
@@ -473,29 +473,6 @@ pfne@ubuntu1804-pfne:~$ tree
 │           └── get_conf_and_int.yml
 ```
 
-#### Forward Essentials
-
-Forward Essentials collects and organizes data about your network automatically producing an always up-to-date topology and inventory. Configuration and state data is searchable network-wide across all your devices.
-
-After installation (you need to sign up [here](https://www.forwardnetworks.com/network-mapping-software/) to get a logon to the web app and download software - essentials is free) start the collector on the Linux automation host (it does not run as a service) to do device discovery and snapshots.
-
-Installation on Linux
-
-Open a terminal on the host machine and run this command. No need to use sudo. Your command will most likely differ due to the token.
-
-```
-bash <(curl  -s 'https://fwd.app/api/software/client/installScript?token=a3b6f690-92cb-4082-83af-a09f884b8d29') && export PATH=$HOME/.fwd/bin:$PATH
-```
-
-Path to Forward Networks collector software '.fwd/bin/'
-
-Open a new SSH session to the Linux host and start the collector (if the session or daemon is interrupted then the collector will stop):
-
-```
-.fwd/bin/fwd daemon
-```
-
-The Forward Essentials portal is accessed [here](https://app.forwardnetworks.com)
 
 #### [Salt](https://www.saltstack.com/solutions/netops/) Setup
 
@@ -547,4 +524,3 @@ Follow this [guide to install docker compose](https://linuxize.com/post/how-to-i
 Example [docker-compose](https://github.com/geerlingguy/awx-container/blob/master/docker-compose.yml) file for Ansible AWX (open source version of Ansible Tower)
 
 Example [docker-compose](https://github.com/netbox-community/netbox-docker) file for NetBox (open-source IPAM/DCIM application)
-
