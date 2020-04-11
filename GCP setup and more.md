@@ -8,12 +8,16 @@ Credits and inspiration go-to:
 
 * Tony Es similar but basic blog [post](https://showipintbri.blogspot.com/2018/08/eve-ng-in-cloud.html) which points to his comprehensive video on [YouTube](https://www.youtube.com/watch?v=HDHsMgCs0XU)
 
-* And also watch this alternative [Azure](https://youtu.be/hdUSNWMHbUU) setup by thelantamer - see my setup guide [here](https://github.com/sipart/spring_lab/blob/master/azure/AZURE%20EVE-NG%20setup.md) for EVE-NG in Azure
+* And also watch this alternative [Azure](https://youtu.be/hdUSNWMHbUU) setup by thelantamer - see my setup guide [here](https://github.com/sipart/spring_lab/blob/master/azure/AZURE%20EVE-NG%20setup.md) for EVE-NG in Azure. I would not advise using Azure as the EVE-NG kernel is always overwritten by the MS Azure Linux kernel - trying to swap this out with the EVE-NG kernal will result in an unsable VM/EVE-NG!
 
-### Once EVE-NG install has been completed and verified then move on to the bonus steps below
+### Once EVE-NG install has been completed and verified then move on to the bonus notes and steps below
 
 ### Other notes and steps for this lab setup
 I used the GCP - europe-west2-c region VPC in the following example changes - 10.154.0.0/20
+
+#### Sourcing and Uploading virtual device images
+
+Vednor virtual images need to be sourced by yourself and uploaded to the '''/opt/unetlab/addons''' folders (dynamips or iol or qemu)
 
 #### [Cloud9 setup on EVE-NG server](https://d-herrmann.de/2018/04/nat-cloud-in-eve-ng-community-edition/) - allows Internet access for Linux host in topology and EVE-NG/Linux host access to network device mgmt. - commands assume logged in as root. 
 
