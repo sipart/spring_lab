@@ -1,6 +1,6 @@
 # MPLS Segment Routing Core for a [EVE-NG](http://www.eve-ng.net/) virtual lab
 
-NOTE - 11th April 2020: this project has become stale due to one thing and another - but still mostly useful and realvent 
+NOTE - 11th April 2020: this project has become stale due to one thing and another - but still mostly useful and relevant.
 
 Lab created from the example in the Juniper Day One book [Configuring Segment Routing with Junos](https://www.juniper.net/uk/en/training/jnbooks/day-one/configuring-segment-routing-junos/index.page) by [Julian Lucek](https://twitter.com/julianlucek?lang=en) and [Krzysztof Szarkowicz](https://www.oreilly.com/pub/au/6140).
 
