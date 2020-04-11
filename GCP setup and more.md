@@ -1,6 +1,6 @@
 # Resources for setting up EVE-NG in the Google Compute Platform. 
 
-### The initial steps for install of EVE-NG on GCP are detailed on the [EVE-NG website](https://www.eve-ng.net/index.php/documentation/installation/google-cloud-install/) - take special note of the instructions due to some small differences when installing Community or PRO versions - name at Step 2.3, choice of version at 5.2.1 & 5.2.2 and skip 5.6 docker install if you have installed the community version.
+### The initial steps for install of EVE-NG on GCP are detailed on the [EVE-NG website](https://www.eve-ng.net/index.php/documentation/installation/google-cloud-install/) - take special note of the instructions due to some small differences when installing the Community or PRO versions - the name at Step 2.3, the choice of version at 5.2.1 & 5.2.2 and skip the 5.6 docker install if you have installed the community version.
 
 Credits and inspiration go-to:
 
