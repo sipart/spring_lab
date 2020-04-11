@@ -1,5 +1,8 @@
 ## Resources for setting up EVE-NG in the Google Compute Platform
 
+I have left the setup detail below - but the initial steps for install of EVE-NG on GCP are detailed on the [EVE-NG website](https://www.eve-ng.net/index.php/documentation/installation/google-cloud-install/)
+
+```
 Credits go-to:
 
 * This comprehensive post by [ithitman](http://ithitman.blogspot.com/2018/04/configuring-eve-ng-on-google-compute.html)
@@ -72,6 +75,7 @@ update-grub
 Reboot
 ```
 sudo shutdown -r now
+```
 ```
 
 ### Other notes and steps for this lab setup
