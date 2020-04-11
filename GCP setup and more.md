@@ -1,6 +1,6 @@
 # Resources for setting up EVE-NG in the Google Compute Platform. 
 
-### The initial steps for install of EVE-NG on GCP are detailed on the [EVE-NG website](https://www.eve-ng.net/index.php/documentation/installation/google-cloud-install/)
+### The initial steps for install of EVE-NG on GCP are detailed on the [EVE-NG website](https://www.eve-ng.net/index.php/documentation/installation/google-cloud-install/) - take special note of the instructions due to some small differences in the instructions when installing Community and PRO versions - name at Step 2.3, choice of version at 5.2.1 and 5.2.2, skip 5.6 docker install if you have installed the community version
 
 Credits and inspiration go-to:
 
@@ -8,7 +8,9 @@ Credits and inspiration go-to:
 
 * Tony Es similar but basic blog [post](https://showipintbri.blogspot.com/2018/08/eve-ng-in-cloud.html) which points to his comprehensive video on [YouTube](https://www.youtube.com/watch?v=HDHsMgCs0XU)
 
-* And also watch this alternative [Azure](https://youtu.be/hdUSNWMHbUU) setup by thelantamer - see my setup guide [here](https://github.com/sipart/spring_lab/blob/master/azure/AZURE%20EVE-NG%20setup.md) for EVE-NG in Azure. I would not advise using Azure as the EVE-NG kernel is always overwritten by the MS Azure Linux kernel - trying to swap this out with the EVE-NG kernal will result in an unsable VM/EVE-NG!
+* And also watch this alternative [Azure](https://youtu.be/hdUSNWMHbUU) setup by thelantamer - see my setup guide [here](https://github.com/sipart/spring_lab/blob/master/azure/AZURE%20EVE-NG%20setup.md) for EVE-NG in Azure. I would not advise using Azure as the EVE-NG kernel is always overwritten by the MS Azure Linux kernel - trying to swap this out with the EVE-NG kernel will result in an unsable VM/EVE-NG!
+
+* And primarily the EVE-NG developers!
 
 ### Once EVE-NG install has been completed and verified then move on to the bonus notes and steps below
 
@@ -19,7 +21,9 @@ I used the GCP - europe-west2-c region VPC in the following example changes - 10
 
 Vendor virtual images need to be sourced by yourself and uploaded to the ```/opt/unetlab/addons``` folders (dynamips or iol or qemu) - follow the folder and qemu image naming conventions detailed on the [EVE-NG website here](https://www.eve-ng.net/index.php/documentation/qemu-image-namings/). Always fix permissions (```/opt/unetlab/wrappers/unl_wrapper -a fixpermissionsthe```) the first time you copy an image or images to your EVE-NG server.
 
-#### [Cloud9 setup on EVE-NG server](https://d-herrmann.de/2018/04/nat-cloud-in-eve-ng-community-edition/) - allows Internet access for Linux host in topology and EVE-NG/Linux host access to network device mgmt. - commands assume logged in as root. 
+#### [Cloud9 setup on EVE-NG server](https://d-herrmann.de/2018/04/nat-cloud-in-eve-ng-community-edition/) - allows Internet access for Linux host in topology and EVE-NG/Linux host access to network device mgmt. - commands assume logged in as root.
+
+The following steps to add this are at your own caution - the EVE-NG team do not support these changes to the community version - you are advised to buy and use EVE-NG PRO to have this functionality baked in and supported!
 
 ```
 ip address add 10.154.0.10/20 dev pnet9
