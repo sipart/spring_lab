@@ -1,6 +1,6 @@
-## Resources for setting up EVE-NG in the Google Compute Platform. 
+### Resources for setting up EVE-NG in the Google Compute Platform. 
 
-# The initial steps for install of EVE-NG on GCP are detailed on the [EVE-NG website](https://www.eve-ng.net/index.php/documentation/installation/google-cloud-install/)
+### The initial steps for install of EVE-NG on GCP are detailed on the [EVE-NG website](https://www.eve-ng.net/index.php/documentation/installation/google-cloud-install/)
 
 Credits and inspiration go-to:
 
