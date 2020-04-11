@@ -1,9 +1,8 @@
-## Resources for setting up EVE-NG in the Google Compute Platform
+## Resources for setting up EVE-NG in the Google Compute Platform. 
 
-I have left the setup detail below - but the initial steps for install of EVE-NG on GCP are detailed on the [EVE-NG website](https://www.eve-ng.net/index.php/documentation/installation/google-cloud-install/)
+# The initial steps for install of EVE-NG on GCP are detailed on the [EVE-NG website](https://www.eve-ng.net/index.php/documentation/installation/google-cloud-install/)
 
-```
-Credits go-to:
+Credits and inspiration go-to:
 
 * This comprehensive post by [ithitman](http://ithitman.blogspot.com/2018/04/configuring-eve-ng-on-google-compute.html)
 
@@ -11,77 +10,10 @@ Credits go-to:
 
 * And also watch this alternative [Azure](https://youtu.be/hdUSNWMHbUU) setup by thelantamer - see my setup guide [here](https://github.com/sipart/spring_lab/blob/master/azure/AZURE%20EVE-NG%20setup.md) for EVE-NG in Azure
 
-* The key and first element of the setup of EVE-NG in GCP is creating a GCP image that has nested virtialsation enabled and then when adding a VM sized to your choosing it having the Boot disk set using that image. The new image is based off an existing Ubuntu 16.04 GCP image
-
-* So before doing anything use the Google Cloud Shell to create this image which will be called nested-virt-ubuntu
-```
-gcloud compute images create nested-virt-ubuntu --source-image-project=ubuntu-os-cloud --source-image-family=ubuntu-1604-lts --licenses="https://www.google.com/compute/v1/projects/vm-options/global/licenses/enable-vmx"
-```
-
-* You can then go ahead and create a new VM with this Boot disk ensuring the disk is of an adequate size (suggest 100Gb+)
-* Setup FW rules for your choosen VPC network
-
-![gcp_fw](/img/gcp_fw.png)
-
-* Boot up VM and SSH (via portal SSH) and set root password
-```
-sudo passwd root
-Enter new UNIX password:
-Retype new UNIX password:
-passwd: password updated successfully
-```
-
-* Set abiity to login as root
-```
-sudo nano /etc/ssh/sshd_config
-```
-Change:
-```
-PermitRootLogin yes
-
-PasswordAuthentication yes
-```
-
-* Change interface name to "eth0" (if needed!)
-```
-nano /etc/udev/rules.d/70-persistent-net.rules
-```
-Update/Upgrade and Reboot
-```
-sudo apt update
-
-audo apt upgrade
-
-sudo shutdown -r now
-```
-* Logon via desktop SSH client as root and install eve-ng
-```
-wget -O - http://www.eve-ng.net/repo/install-eve.sh | bash -i 
-```
-Reboot
-```
-sudo shutdown -r now
-```
-
-* You will get prompts for root password and other settings which you can just accept and then VM will reboot again
-
-
-* Update grub to set this default
-```
-sed -i -e  's/GRUB_CMDLINE_LINUX_DEFAULT=.*/GRUB_CMDLINE_LINUX_DEFAULT="net.ifnames=0 noquiet"/' /etc/default/grub
-
-update-grub
-```
-Reboot
-```
-sudo shutdown -r now
-```
-```
+### Once EVE-NG install has been complted and verified then move on to the steps below
 
 ### Other notes and steps for this lab setup
-I setup my VM in the europe-west1 region due to the need for more cores not availiable in the UK DCs.
-
-I used the GCP - europe-west2 region VPC in the following example changes - 10.154.0.0/20
+I used the GCP - europe-west2-c region VPC in the following example changes - 10.154.0.0/20
 
 #### [Cloud9 setup on EVE-NG server](https://d-herrmann.de/2018/04/nat-cloud-in-eve-ng-community-edition/) - allows Internet access for Linux host in topology and EVE-NG/Linux host access to network device mgmt. - commands assume logged in as root. 
 
@@ -541,7 +473,7 @@ To increase resolution
 ```
 sudo nano /etc/default/grub
 ```
-Comment out the GRUB_GFXMODE section and change the resolution to something suitable (1024x768 as a starter) then
+Comment out the GRUB_GFXMODE section and change the resolution to something suitable (1280x960 as a starter) then
 ```
 sudo update-grub
 ```
