@@ -477,6 +477,10 @@ To install XFCE
 ```
 sudo apt-get install xubuntu-desktop
 ```
+To uninstall
+```
+sudo apt-get autoremove --purge xubuntu-* && sudo apt-get autoremove --purge xfce*
+```
 To increase resolution 
 ```
 sudo nano /etc/default/grub
