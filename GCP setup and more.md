@@ -187,6 +187,22 @@ All Done!
 pfne@ubuntu1804-pfne:~$
 ```
 
+Set locale to UK (or your preferred locale)
+```
+pfne@ubuntu1804-pfne:~$ sudo locale-gen en_GB
+[sudo] password for pfne:
+Generating locales (this might take a while)...
+  en_GB.ISO-8859-1... done
+Generation complete.
+
+pfne@ubuntu1804-pfne:~$ sudo locale-gen en_GB.utf8
+Generating locales (this might take a while)...
+  en_GB.UTF-8... done
+Generation complete.
+
+pfne@ubuntu1804-pfne:~$ sudo update-locale
+```
+
 ##### [TMUX](https://linuxize.com/post/getting-started-with-tmux/) - multi window access from EVE-NG SSH session
 
 ```
