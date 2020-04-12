@@ -465,9 +465,24 @@ Follow this [guide to install docker](https://linuxize.com/post/how-to-install-a
 
 Follow this [guide to install docker compose](https://linuxize.com/post/how-to-install-and-use-docker-compose-on-ubuntu-18-04/) - this allows you to define and manage multi-container Docker applications
 
-Example [docker-compose](https://github.com/geerlingguy/awx-container/blob/master/docker-compose.yml) file for Ansible AWX (open source version of Ansible Tower)
+Example [docker-compose](https://github.com/geerlingguy/awx-container) file for Ansible AWX (open source version of Ansible Tower)
 
 Example [docker-compose](https://github.com/netbox-community/netbox-docker) file for NetBox (open-source IPAM/DCIM application)
+
+Basically create a projects folder, git clone the above repos and run
+```
+docker-compose pull
+docker-compose up -d
+```
+To check netbox is running and what port it is using run the following while in the netbox-docker projects directory
+```
+echo "http://$(docker-compose port nginx 8080)/"
+```
+or
+```
+docker ps
+```
+Will list what containers are running and what port is exposed
 
 #### Other Linux notes
 
@@ -477,10 +492,6 @@ To install XFCE
 ```
 sudo apt-get install xubuntu-desktop
 ```
-To uninstall
-```
-sudo apt-get autoremove --purge xubuntu-* && sudo apt-get autoremove --purge xfce*
-```
 To increase resolution 
 ```
 sudo nano /etc/default/grub
@@ -488,5 +499,9 @@ sudo nano /etc/default/grub
 Comment out the GRUB_GFXMODE section and change the resolution to something suitable (1280x960 as a starter) then
 ```
 sudo update-grub
+```
+To uninstall
+```
+sudo apt-get autoremove --purge xubuntu-* && sudo apt-get autoremove --purge xfce*
 ```
 
