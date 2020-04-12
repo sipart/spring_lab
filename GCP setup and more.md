@@ -467,7 +467,9 @@ Follow this [guide to install docker compose](https://linuxize.com/post/how-to-i
 
 Example [docker-compose](https://github.com/netbox-community/netbox-docker) file for NetBox (open-source IPAM/DCIM application)
 
-Basically create a projects folder, git clone the above repo and run
+Example [docker-compose](https://github.com/docker/awesome-compose/tree/master/prometheus-grafana) for Prometheus & Grafana
+
+Example - Netbox - create a projects folder, git clone the above repo and run:
 ```
 docker-compose pull
 docker-compose up -d
