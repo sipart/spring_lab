@@ -15,11 +15,11 @@ Credits and inspiration go-to:
 ### Once EVE-NG install has been completed and verified then move on to the bonus notes and steps below
 
 ### Other notes and steps for this lab setup
-I used the GCP - europe-west2-c region VPC in the following example changes - 10.154.0.0/20
+I used the GCP - europe-west2-c region VPC subnet in the following example changes - the subnet is 10.154.0.0/20
 
 #### Sourcing and Uploading virtual device images
 
-Vendor virtual images need to be sourced by yourself and uploaded to the ```/opt/unetlab/addons``` folders (dynamips or iol or qemu) - follow the folder and qemu image naming conventions detailed on the [EVE-NG website here](https://www.eve-ng.net/index.php/documentation/qemu-image-namings/). Always fix permissions (```/opt/unetlab/wrappers/unl_wrapper -a fixpermissionsthe```) the first time you copy an image or images to your EVE-NG server.
+Vendor virtual images need to be sourced by yourself and uploaded to the ```/opt/unetlab/addons``` folders (dynamips or iol or qemu) - follow the folder and qemu image naming conventions detailed on the [EVE-NG website here](https://www.eve-ng.net/index.php/documentation/qemu-image-namings/). Always fix permissions (```/opt/unetlab/wrappers/unl_wrapper -a fixpermissions```) the first time you copy an image or images to your EVE-NG server.
 
 #### [Cloud9 setup on EVE-NG server](https://d-herrmann.de/2018/04/nat-cloud-in-eve-ng-community-edition/) - allows Internet access for Linux host in topology and EVE-NG/Linux host access to network device mgmt. - commands assume logged in as root.
 
