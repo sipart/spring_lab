@@ -528,6 +528,7 @@ nano ~/.bashrc
 Append the alias list with desired command - for example:
 ```
 alias up='apt update && apt upgrade -y'
+alias fixperm='/opt/unetlab/wrappers/unl_wrapper -a fixpermissions'
 ```
 Set the bashrc as source to enable the alias stright away:
 ```
