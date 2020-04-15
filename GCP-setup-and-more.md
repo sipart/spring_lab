@@ -8,7 +8,7 @@ Credits and inspiration go-to:
 
 * Tony Es similar but basic blog [post](https://showipintbri.blogspot.com/2018/08/eve-ng-in-cloud.html) which points to his comprehensive video on [YouTube](https://www.youtube.com/watch?v=HDHsMgCs0XU)
 
-* And also watch this alternative [Azure](https://youtu.be/hdUSNWMHbUU) setup by thelantamer - see my setup guide [here](https://github.com/sipart/spring_lab/blob/master/azure/AZURE%20EVE-NG%20setup.md) for EVE-NG in Azure. I would not advise using Azure as the EVE-NG kernel is always overwritten by the MS Azure Linux kernel - trying to swap this out with the EVE-NG kernel will result in an unsable VM/EVE-NG!
+* And also watch this alternative [Azure](https://youtu.be/hdUSNWMHbUU) setup by thelantamer - see my setup guide [here](https://github.com/sipart/spring_lab/blob/master/azure/AZURE%20EVE-NG%20setup.md) for EVE-NG in Azure. I would not advise using Azure as the EVE-NG kernel is always overwritten by the MS Azure Linux kernel - trying to swap this out with the EVE-NG kernel will result in an unusable VM/EVE-NG!
 
 * And primarily the EVE-NG developers!
 
