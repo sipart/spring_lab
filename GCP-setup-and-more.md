@@ -502,7 +502,7 @@ Will list what containers are running and what port is exposed
 
 #### Other Linux notes
 
-VNC is used to remote to the host so adding a desktop environment is ideal if wanting to access web guis of docker applications (like NetBox etc.)
+* VNC is used to remote to the host so adding a desktop environment is ideal if wanting to access web guis of docker applications (like NetBox etc.)
 
 To install XFCE
 ```
@@ -519,4 +519,17 @@ sudo update-grub
 To uninstall
 ```
 sudo apt-get autoremove --purge xubuntu-* && sudo apt-get autoremove --purge xfce*
+```
+
+* To add new alias to bash shell:
+```
+nano ~/.bashrc
+```
+Append the alias list with desired command - for example:
+```
+alias up='apt update && apt upgrade -y'
+```
+Set the bashrc as source to enable the alias stright away:
+```
+source ~/.bashrc
 ```
