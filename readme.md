@@ -22,7 +22,7 @@ At this time the EVE-NG server is in the Google Compute Platform as you get $300
 * CumulusVX (Salt minion) cumulus user password is CumulusLinux!
 * The pfne user has a local public SSH key to communicate with the network devices from the Linux automation server
 * Initial folder holds the configs for the devices and also exports from EVE-NG of the initial setup (upto page 15 of the book)
-* More comprehensive information on how to create the lab and other components [here](https://github.com/sipart/spring_lab/blob/master/GCP%20setup%20and%20more.md)
+* More comprehensive information on how to create the lab and other components [here](https://github.com/sipart/spring_lab/blob/master/GCP-setup-and-more.md)
 
 EVE-NG lab topology:
 
